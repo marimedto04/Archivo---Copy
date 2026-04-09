@@ -213,3 +213,5 @@ body {
   font-weight: 700;
   color: #111827;
 }
+
+@import './chatbot.css';

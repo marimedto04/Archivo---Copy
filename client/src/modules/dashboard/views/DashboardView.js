@@ -20,6 +20,7 @@ export class DashboardView extends BaseView {
           <h1 id="dashboard-title">Dashboard</h1>
           <span id="dashboard-user" class="dashboard-user"></span>
           <button class="btn btn--secondary" id="dashboard-refresh">Actualizar</button>
+          <button class="btn btn--primary" id="open-chatbot-btn">NUMI</button>
         </header>
 
         <div id="dashboard-loading" class="loading" style="display:none;">
@@ -70,6 +71,9 @@ export class DashboardView extends BaseView {
   _bindEvents() {
     this._addEvent('#dashboard-refresh', 'click', () => {
       this._viewModel.refresh()
+    })
+    this._addEvent('#open-chatbot-btn', 'click', () => {
+      eventBus.emit('navigation:openChatbot')
     })
   }
 

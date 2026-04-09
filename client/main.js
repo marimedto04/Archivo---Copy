@@ -1,66 +1,41 @@
-/**
- * client/main.js
- * ---------------
- * Punto de entrada de la aplicación cliente.
- * Inicializa el HttpClient, restaura la sesión y monta la primera vista.
- */
-
 import { httpClient } from './src/shared/utils/httpClient.js'
 import { authStore } from './src/modules/auth/store/authStore.js'
 import { eventBus } from './src/shared/utils/eventBus.js'
+
 import { LoginView } from './src/modules/auth/views/LoginView.js'
 import { DashboardView } from './src/modules/dashboard/views/DashboardView.js'
 import { LandingView } from './src/modules/landing/views/LandingView.js'
+import { SubjectSelectorView } from './src/modules/chatbot/views/SubjectSelectorView.js'
+import { ChatView } from './src/modules/chatbot/views/ChatView.js'
 
-// ─── Configuración global ──────────────────────────────────────────────────
-
+// ── Configuración ─────────────────────────────────────────────────────────────
 httpClient.setBaseUrl('http://localhost:3000')
 
-// ─── Restaurar sesión previa ───────────────────────────────────────────────
-
 authStore.restore()
+if (authStore.token) httpClient.setAuthToken(authStore.token)
 
-if (authStore.token) {
-  httpClient.setAuthToken(authStore.token)
-}
-
-// ─── Enrutamiento simple ───────────────────────────────────────────────────
-
+// ── Router ────────────────────────────────────────────────────────────────────
 let currentView = null
 
-/**
- * Monta una vista en el contenedor principal y destruye la anterior.
- * @param {typeof import('./src/core/BaseView').BaseView} ViewClass
- */
-async function navigateTo(ViewClass) {
-  if (currentView) {
-    currentView.destroy()
-  }
-
-  currentView = new ViewClass({ container: '#app' })
+async function navigateTo(ViewClass, opts = {}) {
+  if (currentView) currentView.destroy()
+  currentView = new ViewClass({ container: '#app', ...opts })
   await currentView.mount()
 }
 
-// ─── Lógica de navegación por sesión ─────────────────────────────────────
+// ── Inicio ────────────────────────────────────────────────────────────────────
+authStore.isAuthenticated ? navigateTo(DashboardView) : navigateTo(LandingView)
 
-if (authStore.isAuthenticated) {
-  navigateTo(DashboardView)
-} else {
-  navigateTo(LandingView)
-}
-
-// ─── Eventos globales de navegación ──────────────────────────────────────
-
-eventBus.on('auth:loginSuccess', () => {
-  navigateTo(DashboardView)
-})
-
+// ── Eventos globales ──────────────────────────────────────────────────────────
+eventBus.on('auth:loginSuccess', () => navigateTo(DashboardView))
+eventBus.on('navigation:goToLogin', () => navigateTo(LoginView))
 eventBus.on('auth:logout', () => {
   authStore.clearSession()
   httpClient.clearAuthToken()
   navigateTo(LandingView)
 })
 
-eventBus.on('landing:goToLogin', () => {
-  navigateTo(LoginView)
-})
+// ── Eventos del chatbot ───────────────────────────────────────────────────────
+eventBus.on('navigation:openChatbot', () => navigateTo(SubjectSelectorView))
+eventBus.on('chatbot:subjectSelected', ({ subject, level }) => navigateTo(ChatView, { subject, level }))
+eventBus.on('chatbot:back', () => navigateTo(SubjectSelectorView))
