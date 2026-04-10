@@ -3,6 +3,8 @@
    Convención: BEM (Block__Element--Modifier)
    ─────────────────────────────────────────────────────────────── */
 
+@import './chatbot.css';
+
 /* ─── Reset y base ──────────────────────────────────────────────── */
 *,
 *::before,
@@ -213,5 +215,3 @@ body {
   font-weight: 700;
   color: #111827;
 }
-
-@import './chatbot.css';

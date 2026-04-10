@@ -1,0 +1,218 @@
+:root {
+    --btn-blue: #3a7df5;
+    --gray-bg: #f8f8f8;
+    --gray-border: #e6e6e6;
+}
+
+/* Navbar Download */
+.download-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    color: var(--white);
+}
+
+.download-nav .logo-img { height: 35px; }
+.download-nav .nav-links { display: flex; gap: 30px; font-weight: 700; font-size: 14px; }
+.download-nav .nav-icons { display: flex; align-items: center; }
+.download-nav .nav-icons svg { width: 28px; height: 28px; fill: none; stroke: var(--white); stroke-width: 2; }
+
+/* Hero Download */
+.hero-download {
+    background-color: var(--light-blue);
+    padding: 130px 20px 120px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-download h1 {
+    font-size: 34px;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.hero-download .hero-desc {
+    font-size: 15px;
+    max-width: 650px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.download-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.btn-download {
+    background-color: var(--btn-blue);
+    width: 130px;
+    height: 130px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.btn-download svg {
+    width: 50px;
+    height: 50px;
+    stroke: var(--white);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.btn-download:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.download-label {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.hero-download .hero-monkey {
+    position: absolute;
+    left: -30px;
+    top: 55%;
+    transform: scaleX(-1) rotate(-10deg);
+    width: 240px;
+    z-index: 4;
+}
+
+.hero-download .hero-nubes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(40%);
+    z-index: 10;
+}
+
+.hero-download .hero-nubes img {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;
+    rotate: 180deg;
+}
+
+/* Content Container */
+.content-download {
+    max-width: 800px;
+    margin: 100px auto 80px;
+    padding: 0 5%;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+}
+
+.content-download .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+    border-bottom: none;
+}
+
+.content-download .section-header h2 { font-size: 20px; }
+
+.content-download .pollo-icon {
+    width: 90px;
+    margin-bottom: -15px;
+    position: relative;
+    z-index: 2;
+}
+
+.content-download details {
+    background-color: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: 0px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.content-download details summary {
+    padding: 18px 25px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+}
+
+.content-download details summary::-webkit-details-marker { display: none; }
+
+.content-download details summary::after {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat center;
+    transition: transform 0.2s;
+}
+
+.content-download details[open] summary::after { transform: rotate(180deg); }
+.content-download details[open] summary { margin-bottom: 5px; }
+
+.content-download .details-body {
+    padding: 0 25px 25px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 2.8;
+    color: var(--text-dark);
+}
+
+.content-download .details-body ol { list-style: none; padding-left: 10px; }
+.content-download .details-body li { margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+
+.content-download .icon-inline {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    fill: none;
+    stroke: var(--text-dark);
+    stroke-width: 2;
+}
+
+.content-download .faq-title {
+    color: var(--btn-blue);
+    font-size: 22px;
+    text-align: center;
+    margin: 50px 0 30px;
+}
+
+.content-download .faq-card {
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.content-download .faq-card summary { padding: 15px 25px; font-size: 13px; }
+
+@media (max-width: 768px) {
+    .download-nav .nav-links { display: none; }
+    .hero-download h1 { font-size: 28px; }
+    .hero-download .hero-monkey { left: -60px; width: 180px; }
+}

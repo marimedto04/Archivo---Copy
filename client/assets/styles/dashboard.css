@@ -1,0 +1,453 @@
+:root {
+  --primary-blue: #3264fa;
+  --light-blue: #65cee3;
+  --orange: #f48c36;
+  --purple: #d232c8;
+  --text-dark: #1f1f1f;
+  --white: #ffffff;
+
+  --math: #3d7cf5;
+  --social: #fba931;
+  --nature: #71da54;
+  --english: #c738e4;
+  --spanish: #ea605b;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--white);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, .logo {
+  font-family: 'Fredoka', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Nav */
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  color: var(--white);
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2;
+}
+
+/* Hero Container */
+.hero {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 120px 20px 80px;
+  text-align: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 42px;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.btn {
+  background-color: var(--orange);
+  color: var(--white);
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  display: inline-block;
+  box-shadow: 0 4px 0px #cf6e1f;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  display: flex;
+}
+
+.hero-wave svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Welcome Section */
+.welcome {
+  padding: 60px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.welcome-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.welcome-text h2 {
+  color: var(--primary-blue);
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.welcome-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.welcome-img {
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+}
+
+.welcome-img img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Classes */
+.classes {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.classes h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: right;
+  padding-right: 10%;
+}
+
+.class-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.class-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+}
+
+.class-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.class-card span {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.bg-math { background-color: var(--math); }
+.bg-social { background-color: var(--social); }
+.bg-nature { background-color: var(--nature); }
+.bg-english { background-color: var(--english); }
+.bg-spanish { background-color: var(--spanish); }
+
+.text-math { color: var(--math); }
+.text-social { color: var(--social); }
+.text-nature { color: var(--nature); }
+.text-english { color: var(--english); }
+.text-spanish { color: var(--spanish); }
+
+/* Benefits */
+.benefits-container {
+  background-color: var(--light-blue);
+  position: relative;
+  padding: 80px 20px;
+  margin-top: 15vw;
+  text-align: center;
+}
+
+.benefits-decorations {
+  position: absolute;
+  bottom: 99%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.nubes {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.pollo {
+  position: absolute;
+  left: 5%;
+  bottom: 30%;
+  width: 15vw;
+  max-width: 180px;
+  z-index: 1;
+}
+
+.benefits-container h2 {
+  color: var(--primary-blue);
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.benefit-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.benefit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.benefit-card h3 {
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.benefit-card p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* App Preview */
+.app-preview {
+  background-color: var(--white);
+  padding: 80px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.phones {
+  display: flex;
+  gap: 20px;
+}
+
+.phone {
+  width: 200px;
+  height: 400px;
+  background-color: #ddd;
+  border-radius: 30px;
+  border: 8px solid #000;
+  border-bottom-width: 15px;
+  border-top-width: 15px;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.app-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: right;
+}
+
+.app-text h2 {
+  color: var(--purple);
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.app-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background-color: var(--light-blue);
+  color: var(--white);
+  padding: 60px 5% 40px;
+  position: relative;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-wave-top {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  display: flex;
+}
+
+.footer-wave-top svg {
+  width: 100%;
+  height: 60px;
+  fill: var(--light-blue);
+}
+
+.footer-left {
+  max-width: 400px;
+}
+
+.footer-left .logo {
+  font-size: 40px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footer-left p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: -15px;
+}
+
+.footer-links a {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.footer-links a::after {
+  content: "|";
+  margin-left: 15px;
+  opacity: 0.5;
+}
+
+.footer-links a:last-child::after {
+  content: "";
+}
+
+.footer-download {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+.footer-download svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--white);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero h1 { font-size: 30px; }
+  .classes h2 { text-align: center; padding-right: 0; }
+  .app-preview { flex-direction: column; text-align: center; }
+  .app-text { text-align: center; }
+  .footer-links { justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+  footer { align-items: center; text-align: center; flex-direction: column; }
+}

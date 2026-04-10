@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUMI - Descargar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --light-blue: #65cee3;
+            --btn-blue: #3a7df5;
+            --text-dark: #000000;
+            --white: #ffffff;
+            --gray-bg: #f8f8f8;
+            --gray-border: #e6e6e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 20;
+            color: var(--white);
+        }
+
+        .logo-img {
+            height: 35px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icons svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: var(--white);
+            stroke-width: 2;
+        }
+
+        /* Hero */
+        .hero {
+            background-color: var(--light-blue);
+            padding: 130px 20px 120px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .hero-desc {
+            font-size: 15px;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        .download-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .btn-download {
+            background-color: var(--btn-blue);
+            width: 130px;
+            height: 130px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-download svg {
+            width: 50px;
+            height: 50px;
+            stroke: var(--white);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .download-label {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .hero-monkey {
+            position: absolute;
+            left: -30px;
+            top: 55%;
+            transform: scaleX(-1) rotate(-10deg);
+            width: 240px;
+            z-index: 4;
+        }
+
+        .hero-nubes {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transform: translateY(40%);
+            z-index: 10;
+        }
+
+        .hero-nubes img {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+            rotate: 180deg;
+        }
+
+        /* Content */
+        .content-container {
+            max-width: 800px;
+            margin: 100px auto 80px;
+            padding: 0 5%;
+            width: 100%;
+            position: relative;
+            z-index: 20;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
+            border-bottom: none;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+        }
+
+        .pollo-icon {
+            width: 90px;
+            margin-bottom: -15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        details {
+            background-color: var(--gray-bg);
+            border: 1px solid var(--gray-border);
+            border-radius: 0px;
+            /* Mockup shows almost square boxes */
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        details summary {
+            padding: 18px 25px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details summary::after {
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat center;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        details[open] summary {
+            margin-bottom: 5px;
+        }
+
+        .details-body {
+            padding: 0 25px 25px;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 2.8;
+            color: var(--text-dark);
+        }
+
+        .details-body ol {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .details-body li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-inline {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            fill: none;
+            stroke: var(--text-dark);
+            stroke-width: 2;
+        }
+
+        .faq-title {
+            color: var(--btn-blue);
+            font-size: 22px;
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .faq-card {
+            border: none;
+            border-radius: 4px;
+            /* Faq items looked a tiny bit more rounded */
+            margin-bottom: 12px;
+        }
+
+        .faq-card summary {
+            padding: 15px 25px;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--light-blue);
+            color: var(--white);
+            padding: 40px 5% 30px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: auto;
+            z-index: 10;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .footer-wave svg {
+            display: block;
+            width: 100%;
+            height: 60px;
+            fill: var(--light-blue);
+        }
+
+        .footer-monkey {
+            position: absolute;
+            left: 5%;
+            top: -140px;
+            width: 180px;
+            z-index: 2;
+        }
+
+        .footer-left {
+            max-width: 400px;
+        }
+
+        .footer-left .logo-img {
+            height: 35px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-left p {
+            font-size: 9px;
+            line-height: 1.4;
+            opacity: 0.9;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+
+        .footer-links a {
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .footer-links a::after {
+            content: "|";
+            margin-left: 15px;
+            opacity: 0.7;
+        }
+
+        .footer-links a:last-child::after {
+            content: "";
+        }
+
+        .footer-download {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .footer-download svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-monkey {
+                left: -60px;
+                width: 180px;
+            }
+
+            .footer-links {
+                justify-content: center;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+
+            footer {
+                align-items: center;
+                text-align: center;
+                flex-direction: column;
+                padding-top: 60px;
+            }
+
+            .footer-monkey {
+                left: 50%;
+                transform: translateX(-50%);
+                top: -100px;
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <img src="assets/img/logo-numi.png" alt="Numi" class="logo-img">
+        <div class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#">¿Qué es numi?</a>
+            <a href="#">Descargar</a>
+            <a href="#">Mi numi</a>
+        </div>
+        <div class="nav-icons">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="assets/img/mono.png" class="hero-monkey" alt="Mono animado">
+
+        <h1>Descarga la app en tu móvil</h1>
+        <p class="hero-desc">
+            Lleva Numi contigo y accede a una experiencia de aprendizaje diseñada para niños, con actividades, juegos o
+            historias que funcionan sin internet. Aprende en cualquier momento y lugar.
+        </p>
+
+        <div class="download-box">
+            <div class="btn-download">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+            </div>
+            <span class="download-label">Para android y IOS</span>
+        </div>
+
+        <div class="hero-nubes">
+            <img src="assets/img/nubes.png" alt="Nubes decorativas">
+        </div>
+    </section>
+
+    <div class="content-container">
+
+        <!-- Instrucciones -->
+        <div class="section-header">
+            <h2>¿Cómo descargar la app?</h2>
+            <img src="assets/img/pollo.png" class="pollo-icon" alt="Pollo decorativo">
+        </div>
+
+        <details open>
+            <summary>Descargarla desde la web</summary>
+            <div class="details-body">
+                <ol>
+                    <li>1. Abre www.numi.com en tu buscador Google o Safari</li>
+                    <li>2. Entra a la pestaña Descargar</li>
+                    <li>3. Presiona el botón <svg class="icon-inline" viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg></li>
+                    <li>4. Empieza a aprender</li>
+                </ol>
+            </div>
+        </details>
+
+        <details open>
+            <summary>Descargarla desde Play Store o App Store</summary>
+            <div class="details-body">
+                <ol>
+                    <li>1. Entra a la Play Store o App Store</li>
+                    <li>2. En el buscador pon Numi</li>
+                    <li>3. Empieza a descargar la aplicación en tu móvil</li>
+                    <li>4. Ya estás listo para aprender</li>
+                </ol>
+            </div>
+        </details>
+
+        <!-- Preguntas frecuentes -->
+        <h2 class="faq-title">Preguntas frecuentes</h2>
+
+        <details class="faq-card">
+            <summary>¿Necesito internet para usar la app de Numi?</summary>
+            <div class="details-body">
+                <p>Nuestra aplicación está diseñada para funcionar de manera óptima sin conexión a internet una vez
+                    descargado el contenido.</p>
+            </div>
+        </details>
+
+        <details class="faq-card">
+            <summary>¿La aplicación es gratuita?</summary>
+            <div class="details-body">
+                <p>Sí, la descarga y las funciones principales son gratuitas.</p>
+            </div>
+        </details>
+
+        <details class="faq-card">
+            <summary>¿En que dispositivos funciona?</summary>
+            <div class="details-body">
+                <p>Funciona tanto en dispositivos Android como iOS, incluyendo tablets y móviles.</p>
+            </div>
+        </details>
+
+        <details class="faq-card">
+            <summary>¿Para que grados sirve Numi?</summary>
+            <div class="details-body">
+                <p>Está diseñado principalmente para niños y niñas en etapas preescolares y primeros años de primaria.
+                </p>
+            </div>
+        </details>
+
+    </div>
+
+    <footer>
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"></path>
+            </svg>
+        </div>
+
+        <img src="assets/img/mono.png" alt="Mono" class="footer-monkey">
+
+        <div class="footer-left">
+            <img src="assets/img/logo-numi.png" alt="Numi" class="logo-img">
+            <p>Numi es una aplicación educativa infantil que ofrece actividades y experiencias de aprendizaje adaptadas
+                a las necesidades de los niños.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Inicio</a>
+            <a href="#">¿Qué es numi?</a>
+            <a href="#">Descargar</a>
+            <a href="#">Mi numi</a>
+        </div>
+
+        <div class="footer-download">
+            <svg viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Descargar app</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
