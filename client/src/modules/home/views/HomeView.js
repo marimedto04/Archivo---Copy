@@ -3,6 +3,7 @@ import { HomeViewModel } from '../viewmodels/HomeViewModel.js';
 import pollo1 from '../../../../assets/styles/images/pollo1.png';
 import mono from '../../../../assets/styles/images/mono.png';
 import { NavComponent } from '../../../shared/components/NavComponent.js';
+import { FooterComponent } from './components/FooterComponent.js';
 
 
 export class HomeView extends BaseView {
@@ -67,6 +68,7 @@ export class HomeView extends BaseView {
             </div>
             <div class="landscape"></div>
         </section>
+        ${FooterComponent()}
       </div>
     `;
   }
