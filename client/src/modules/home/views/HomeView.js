@@ -13,7 +13,7 @@ export class HomeView extends BaseView {
 
   render() {
     return `
-      <div class="home-container" style="background-color: var(--light-blue);">
+      <div class="home-container" style="">
         ${NavComponent()}
 
         <header class="home-header">
@@ -36,9 +36,15 @@ export class HomeView extends BaseView {
                 </form>
             </div>
         </section>
+        <section class="onda">
+        </section>
+      
 
         <section class="signup-wrapper">
             <h2>Crea una cuenta</h2>
+
+           
+
             <h3>¿Cuál es tu nombre?</h3>
             <div class="input-center">
                 <input type="text" placeholder="Nombre" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
@@ -51,6 +57,13 @@ export class HomeView extends BaseView {
                 <div class="char-circle bg-green">
                     <img src="${mono}" alt="Mono">
                 </div>
+            </div>
+
+             <h3>A que grado perteneces</h3>
+            <div class="grade-selection">
+                <button type="button" class="grade-btn bg-green">3º</button>
+                <button type="button" class="grade-btn bg-purple">4º</button>
+                <button type="button" class="grade-btn bg-red">5º</button>
             </div>
             <div class="landscape"></div>
         </section>
