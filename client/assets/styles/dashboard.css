@@ -2,10 +2,28 @@
 
 @font-face {
   font-family: 'Hiruko';
-  src: url('../fonts/Hiruko.ttf') format('truetype');
+  src: url('./fonts/Hiruko.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
+
+.hiruko-text {
+  font-family: 'Hiruko', 'Outfit', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+div.prueba {
+  font-family: 'Hiruko';
+}
+
 
 :root {
   --primary-blue: #3264fa;
@@ -20,6 +38,8 @@
   --nature: #71da54;
   --english: #c738e4;
   --spanish: #ea605b;
+
+  --font-hiruko: 'Hiruko', sans-serif;
 }
 
 body {
@@ -40,11 +60,15 @@ body {
   box-sizing: border-box;
 }
 
+
 h1,
 h2,
-h3,
+h3 {
+  font-family: var(--font-hiruko);
+}
+
 .logo {
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -263,7 +287,7 @@ nav {
   color: var(--white);
   padding: 15px 40px;
   border-radius: 30px;
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-weight: 600;
   display: inline-block;
@@ -381,7 +405,7 @@ nav {
 }
 
 .class-card span {
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
@@ -648,7 +672,7 @@ footer::before {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
 
