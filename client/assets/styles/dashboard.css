@@ -2,10 +2,28 @@
 
 @font-face {
   font-family: 'Hiruko';
-  src: url('../fonts/Hiruko.ttf') format('truetype');
+  src: url('./fonts/Hiruko.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
+
+.hiruko-text {
+  font-family: 'Hiruko', 'Outfit', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+div.prueba {
+  font-family: 'Hiruko';
+}
+
 
 :root {
   --primary-blue: #3264fa;
@@ -20,12 +38,16 @@
   --nature: #71da54;
   --english: #c738e4;
   --spanish: #ea605b;
+
+  --font-hiruko: 'Hiruko', sans-serif;
+
+  --page-max-width: 1024px;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-dark);
-  background-color: var(--white);
+  background-color: #d6dde8;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -40,11 +62,34 @@ body {
   box-sizing: border-box;
 }
 
+/* ----------------------------------
+   Dashboard Container — 1024px centered column
+----------------------------------- */
+body:has(.dashboard-container) {
+  background-color: #d6dde8;
+}
+
+.dashboard-container {
+  max-width: var(--page-max-width) !important;
+  width: 100%;
+  margin: 0 auto !important;
+  background-color: var(--white) !important;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 0 !important;
+}
+
+
 h1,
 h2,
-h3,
+h3 {
+  font-family: var(--font-hiruko);
+}
+
 .logo {
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -164,8 +209,7 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
   padding: 20px 5%;
   display: flex;
   justify-content: space-between;
@@ -206,13 +250,12 @@ nav {
 .hero {
   background-color: var(--primary-blue);
   color: var(--white);
-  padding: 120px 20px 80px;
+  padding: 80px 20px 140px;
   text-align: center;
   position: relative;
-  /* Make sure background reaches edges */
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  overflow: hidden;
+  width: 100%;
+  overflow: visible;
+  z-index: 5;
 }
 
 .hero::before {
@@ -263,13 +306,15 @@ nav {
   color: var(--white);
   padding: 15px 40px;
   border-radius: 30px;
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-weight: 600;
   display: inline-block;
   box-shadow: 0 4px 0px #cf6e1f;
   cursor: pointer;
   transition: transform 0.1s;
+  position: relative;
+  z-index: 10;
 }
 
 .btn:active {
@@ -283,23 +328,32 @@ nav {
   left: 0;
   width: 100%;
   display: flex;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .hero-wave svg {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 /* Welcome Section */
 .welcome {
-  padding: 60px 10%;
+  padding: 40px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
+}
+
+/* White block wrapping welcome + classes — sits flush under hero wave */
+.content-white-block {
+  background-color: var(--white);
+  width: 100%;
 }
 
 .welcome-text {
@@ -332,9 +386,9 @@ nav {
 
 /* Classes */
 .classes {
-  padding: 60px 20px;
+  padding: 40px 20px;
   text-align: center;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -381,7 +435,7 @@ nav {
 }
 
 .class-card span {
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
@@ -431,11 +485,10 @@ nav {
 .benefits-container {
   background-color: var(--light-blue);
   position: relative;
-  padding: 80px 20px;
-  margin-top: 15vw;
+  padding: 60px 20px;
+  margin-top: 100px;
   text-align: center;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
 }
 
 .benefits-decorations {
@@ -476,7 +529,7 @@ nav {
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -515,13 +568,13 @@ nav {
 /* App Preview */
 .app-preview {
   background-color: var(--white);
-  padding: 80px 10%;
+  padding: 40px 5%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 60px;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -565,16 +618,15 @@ nav {
 footer {
   background-color: var(--light-blue);
   color: var(--white);
-  padding: 60px 5vw 40px;
+  padding: 40px 5% 40px;
   position: relative;
-  margin-top: 100px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 20px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
 }
 
 footer::before {
@@ -648,7 +700,7 @@ footer::before {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-family: 'Hiruko', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
 

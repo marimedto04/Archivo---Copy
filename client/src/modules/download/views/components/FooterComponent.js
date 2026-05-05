@@ -1,8 +1,10 @@
 export const FooterComponent = () => `
     <footer>
-        <div class="footer-wave" style="top: -60px;">
-            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-                <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"></path>
+        <div class="footer-wave-top">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60L80,48C160,36,320,12,480,17.3C640,23,800,57,960,64C1120,71,1280,51,1360,41.3L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z">
+                </path>
             </svg>
         </div>
 

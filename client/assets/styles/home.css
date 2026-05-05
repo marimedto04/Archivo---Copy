@@ -11,6 +11,20 @@
     --input-border: #dcdcdc;
 }
 
+body:has(.home-container) {
+    background-color: #d6dde8;
+}
+
+.home-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: var(--white);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Nav */
 .home-nav {
     width: 100%;
@@ -155,19 +169,18 @@
 
 .onda {
     background-image: url('./images/onda.png');
-    background-size: contain;
-    background-position: bottom;
+    background-size: cover;
+    background-position: top;
     background-repeat: no-repeat;
     position: relative;
     text-align: center;
-    padding: 0px 20px 500px;
+    padding: 0px 0px 120px;
 }
 
-/* Signup Section */
 .signup-wrapper {
     position: relative;
     text-align: center;
-    padding: 80px 20px 500px;
+    padding: 50px 20px 350px;
 }
 
 .wave-bottom-white {
@@ -190,7 +203,7 @@
 .signup-wrapper h2 {
     font-family: 'Hiruko', sans-serif;
     font-size: 28px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     position: relative;
     z-index: 2;
 }
@@ -198,15 +211,15 @@
 .signup-wrapper h3 {
     font-family: 'Hiruko', sans-serif;
     font-size: 24px;
-    margin-bottom: 20px;
-    margin-top: 100px;
+    margin-bottom: 15px;
+    margin-top: 40px;
     position: relative;
     z-index: 2;
 }
 
 .input-center {
     max-width: 350px;
-    margin: 0 auto 50px;
+    margin: 0 auto 20px;
     position: relative;
     z-index: 2;
 }
@@ -215,7 +228,7 @@
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     position: relative;
     z-index: 2;
 }
@@ -260,7 +273,7 @@
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 15px;
     position: relative;
     z-index: 2;
 }
@@ -308,4 +321,10 @@
     background: url('./images/fondo.jpeg') bottom center / cover no-repeat;
     z-index: 0;
     pointer-events: none;
+}
+
+.home-container footer {
+    margin-top: -120px;
+    position: relative;
+    z-index: 5;
 }
