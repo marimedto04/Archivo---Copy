@@ -61,9 +61,9 @@ export class SubjectSelectorView extends BaseView {
         this._addEvent('#sel-list', 'click', e => {
             const dl = e.target.closest('[data-download]')
             const chat = e.target.closest('[data-chat]')
-            if (dl) this._viewModel.downloadContent(Number(dl.dataset.download))
+            if (dl) this._viewModel.downloadContent(dl.dataset.download)
             if (chat) {
-                const s = this._viewModel.getState('subjects').find(x => x.id === Number(chat.dataset.chat))
+                const s = this._viewModel.getState('subjects').find(x => x.id === chat.dataset.chat)
                 if (s) this._viewModel.selectSubject(s)
             }
         })

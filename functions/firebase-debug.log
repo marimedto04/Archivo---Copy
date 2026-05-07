@@ -1,0 +1,28 @@
+[debug] [2026-05-07T03:37:26.368Z] ----------------------------------------------------------------------
+[debug] [2026-05-07T03:37:26.370Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Usuario\Archivo---Copy\functions\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2026-05-07T03:37:26.371Z] CLI Version:   15.16.0
+[debug] [2026-05-07T03:37:26.371Z] Platform:      win32
+[debug] [2026-05-07T03:37:26.371Z] Node Version:  v24.14.0
+[debug] [2026-05-07T03:37:26.371Z] Time:          Wed May 06 2026 22:37:26 GMT-0500 (hora estándar de Colombia)
+[debug] [2026-05-07T03:37:26.371Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-07T03:37:27.742Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-07T03:37:27.743Z] > authorizing via signed-in user (marianaateh2005@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2026-05-07T03:37:27.762Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-05-07T03:37:27.762Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-05-07T03:37:27.767Z] Write emulator hub locator at C:\Users\Usuario\AppData\Local\Temp\hub-rag-numi.json
+[debug] [2026-05-07T03:37:27.795Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-05-07T03:37:27.795Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-05-07T03:37:27.796Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-05-07T03:37:27.796Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2026-05-07T03:37:27.823Z] defaultcredentials: writing to file C:\Users\Usuario\AppData\Roaming\firebase\marianaateh2005_gmail_com_application_default_credentials.json
+[debug] [2026-05-07T03:37:27.825Z] Setting GAC to C:\Users\Usuario\AppData\Roaming\firebase\marianaateh2005_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Usuario\\AppData\\Roaming\\firebase\\marianaateh2005_gmail_com_application_default_credentials.json"}}
+[debug] [2026-05-07T03:37:27.828Z] Checked if tokens are valid: true, expires at: 1778128035164
+[debug] [2026-05-07T03:37:27.828Z] Checked if tokens are valid: true, expires at: 1778128035164
+[debug] [2026-05-07T03:37:27.829Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/rag-numi/adminSdkConfig [none]
+[debug] [2026-05-07T03:37:28.314Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/rag-numi/adminSdkConfig 200
+[debug] [2026-05-07T03:37:28.314Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/rag-numi/adminSdkConfig {"projectId":"rag-numi","storageBucket":"rag-numi.firebasestorage.app"}
+[info] i  functions: Watching "C:\Users\Usuario\Archivo---Copy\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Usuario\\Archivo---Copy\\functions\" for Cloud Functions..."}}
+[debug] [2026-05-07T03:37:28.339Z] Validating nodejs source

@@ -23,6 +23,9 @@ export class HomeView extends BaseView {
                 <span class="text-white">¡Hola!</span><br>
                 Bienvenido a <span class="text-white">numi</span>
             </h1>
+            <div style="margin-top: 20px;">
+                <a href="/chat-subjects" data-link class="btn-orange" style="padding: 15px 30px; font-size: 1.2em; text-decoration: none; display: inline-block;">🤖 Probar Chatbot Directamente</a>
+            </div>
         </header>
 
         <section class="login-wrapper">
