@@ -1,6 +1,13 @@
+import mono from '../../../../../assets/styles/images/mono.png';
+import nubes from '../../../../../assets/styles/images/nubes.png';
+
+
+
+
+
 export const HeroComponent = () => `
     <section class="hero-download">
-        <img src="assets/img/mono.png" class="hero-monkey" alt="Mono animado">
+        <img src="${mono}" class="hero-monkey" alt="Mono animado">
 
         <h1>Descarga la app en tu móvil</h1>
         <p class="hero-desc">
@@ -20,7 +27,7 @@ export const HeroComponent = () => `
         </div>
 
         <div class="hero-nubes">
-            <img src="assets/img/nubes.png" alt="Nubes decorativas">
+            <img src="${nubes}" alt="Nubes decorativas">
         </div>
     </section>
 `;

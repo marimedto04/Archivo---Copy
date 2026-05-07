@@ -132,7 +132,7 @@ body:has(.download-module-container) {
 
 .hero-download .hero-nubes {
     position: absolute;
-    bottom: 0;
+    bottom: -35px;
     left: 0;
     width: 100%;
     transform: translateY(40%);

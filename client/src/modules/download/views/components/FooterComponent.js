@@ -1,3 +1,5 @@
+import mono from '../../../../../assets/styles/images/mono.png';
+
 export const FooterComponent = () => `
     <footer>
         <div class="footer-wave-top">
