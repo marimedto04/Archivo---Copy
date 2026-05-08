@@ -15,21 +15,23 @@ export class DownloadView extends BaseView {
 
     render() {
         return `
-            <div class="download-module-container">
-                ${NavComponent()}
-                ${HeroComponent()}
-                
-                <div class="content-download">
-                    ${InstructionsComponent()}
-                    ${FaqComponent()}
-                </div>
+            <div class="dashboard-container">
+                <div class="dashboard-center-content">
+                    ${NavComponent()}
+                    ${HeroComponent()}
+                    
+                    <div class="content-download">
+                        ${InstructionsComponent()}
+                        ${FaqComponent()}
+                    </div>
 
-                ${FooterComponent()}
+                    ${FooterComponent()}
+                </div>
             </div>
         `;
     }
 
-    _bindViewModel() {}
+    _bindViewModel() { }
 
     _bindEvents() {
         // Eventos de navegación manejados por History API

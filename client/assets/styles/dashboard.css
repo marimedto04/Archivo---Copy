@@ -38,53 +38,15 @@ div.prueba {
   --nature: #71da54;
   --english: #c738e4;
   --spanish: #ea605b;
-
   --font-hiruko: 'Hiruko', sans-serif;
 
   --page-max-width: 1024px;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-dark);
-  background-color: #d6dde8;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100vw;
-  min-height: 100vh;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* ----------------------------------
-   Dashboard Container — 1024px centered column
------------------------------------ */
-body:has(.dashboard-container) {
-  background-color: #d6dde8;
-}
-
-.dashboard-container {
-  max-width: var(--page-max-width) !important;
-  width: 100%;
-  margin: 0 auto !important;
-  background-color: var(--white) !important;
-  position: relative;
-  overflow-x: hidden;
-  min-height: 100vh;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 0 !important;
-}
-
-
-h1,
-h2,
-h3 {
+/* Scoped dashboard fonts */
+.dashboard-layout h1,
+.dashboard-layout h2,
+.dashboard-layout h3 {
   font-family: var(--font-hiruko);
 }
 
@@ -205,7 +167,20 @@ a {
 /* ----------------------------------
    General Components & Previous Structure
 ----------------------------------- */
-nav {
+
+
+
+.dashboard-center-content {
+  grid-column: 2;
+  background-color: var(--white);
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+.dashboard-nav-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -220,26 +195,26 @@ nav {
   background-color: var(--light-blue);
 }
 
-.logo {
+.dashboard-logo {
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-.nav-links {
+.dashboard-nav-links {
   display: flex;
   gap: 30px;
   font-weight: 700;
   font-size: 16px;
 }
 
-.nav-icons {
+.dashboard-nav-icons {
   display: flex;
   align-items: center;
 }
 
-.nav-icons svg {
+.dashboard-nav-icons svg {
   width: 32px;
   height: 32px;
   fill: none;
@@ -253,9 +228,9 @@ nav {
   padding: 80px 20px 140px;
   text-align: center;
   position: relative;
+  /* Make sure background reaches edges */
   width: 100%;
-  overflow: visible;
-  z-index: 5;
+  overflow: hidden;
 }
 
 .hero::before {
@@ -266,7 +241,7 @@ nav {
   transform: translateY(-50%);
   width: 200px;
   height: 200px;
-  background-image: url('client/assets/images/pollo1.png');
+  background-image: url('client/assets/images/pollo.png');
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 1;
@@ -618,13 +593,13 @@ nav {
 footer {
   background-color: var(--light-blue);
   color: var(--white);
-  padding: 40px 5% 40px;
+  padding: 80px 80px 40px;
   position: relative;
-  margin-top: 60px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
+  align-items: center;
+  text-align: left;
   gap: 20px;
   width: 100%;
 }
@@ -633,22 +608,24 @@ footer::before {
   content: '';
   position: absolute;
   left: 5%;
-  bottom: 95%;
-  width: 15vw;
+  bottom: calc(100% - 90px);
+  width: 180px;
   max-width: 180px;
   height: 180px;
-  background-image: url('client/assets/images/mono.PNG');
+  background-image: url('./images/mono.png');
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 1;
+  z-index: 10;
 }
 
 .footer-wave-top {
   position: absolute;
-  top: -60px;
+  top: -5px;
+  /* adjust nicely to cover edge */
   left: 0;
   width: 100%;
   display: flex;
+  transform: translateY(-90%);
 }
 
 .footer-wave-top svg {
@@ -658,36 +635,46 @@ footer::before {
 }
 
 .footer-left {
-  max-width: 400px;
+  max-width: 300px;
+  margin: 0;
 }
 
 .footer-left .logo {
-  font-size: 40px;
+  width: 140px;
   margin-bottom: 10px;
   display: block;
 }
 
 .footer-left p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
-  opacity: 0.9;
+  opacity: 1;
+  text-align: left;
 }
 
 .footer-links {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   gap: 15px;
-  margin-bottom: -15px;
+  margin-bottom: 0;
+  flex: 1;
+  /* Center it dynamically between left and right elements */
 }
 
 .footer-links a {
-  font-weight: 700;
-  font-size: 14px;
+  font-family: 'Hiruko', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--white);
 }
 
 .footer-links a::after {
   content: "|";
   margin-left: 15px;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .footer-links a:last-child::after {
@@ -700,8 +687,10 @@ footer::before {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-family: 'Hiruko', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  width: 150px;
 }
 
 .footer-download svg {
@@ -709,6 +698,7 @@ footer::before {
   height: 40px;
   fill: var(--white);
 }
+
 
 @media (max-width: 768px) {
   .nav-links {
@@ -764,11 +754,30 @@ footer::before {
     justify-content: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    white-space: normal;
   }
 
   footer {
+    padding: 60px 20px 40px;
     align-items: center;
     text-align: center;
     flex-direction: column;
+  }
+
+  .footer-left {
+    max-width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-left p {
+    text-align: center;
+  }
+
+  footer::before {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 95%;
   }
 }

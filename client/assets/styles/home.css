@@ -11,24 +11,37 @@
     --input-border: #dcdcdc;
 }
 
-body:has(.home-container) {
-    background-color: #d6dde8;
+/* Container Layout */
+.home-container {
+    display: grid;
+    grid-template-columns: 1fr 1024px 1fr;
+    background-color: #D9D9D9;
+    min-height: 100vh;
 }
 
-.home-container {
-    max-width: 1024px;
-    margin: 0 auto;
+.home-center-content {
+    grid-column: 2;
     background-color: var(--white);
     position: relative;
     overflow-x: hidden;
-    min-height: 100vh;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+/* Footer Fix for 1024px Layout */
+.home-center-content footer {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 80px;
+    padding-right: 80px;
+    box-sizing: border-box;
 }
 
 /* Nav */
 .home-nav {
     width: 100%;
-    padding: 20px 5%;
+    padding: 20px 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,7 +78,7 @@ body:has(.home-container) {
 /* Header */
 .home-header {
     font-family: 'Hiruko', sans-serif;
-    padding: 100px 10% 40px;
+    padding: 100px 80px 40px;
     position: relative;
     background-color: var(--light-blue);
 }
@@ -73,7 +86,8 @@ body:has(.home-container) {
 .home-header h1 {
     font-family: 'Hiruko', sans-serif;
     font-size: 38px;
-    line-height: 1.1;
+    line-height: 1.4;
+    margin-bottom: 24px;
     color: var(--text-dark);
 }
 
@@ -86,6 +100,8 @@ body:has(.home-container) {
     position: relative;
     background-color: var(--white);
     text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .wave-top {
@@ -103,15 +119,17 @@ body:has(.home-container) {
     height: 55px;
 }
 
-.login-container {
+.home-login-container {
     max-width: 400px;
     margin: 0 auto;
     position: relative;
+    top: 80px;
 }
 
-.login-container h2 {
+.home-login-container h2 {
     font-size: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+    line-height: 1.4;
     font-family: 'Hiruko', sans-serif;
 }
 
@@ -123,16 +141,18 @@ body:has(.home-container) {
     z-index: 2;
 }
 
-.login-container form {
+.home-login-container form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     align-items: center;
 }
 
-.login-container input {
+.home-login-container input {
     width: 100%;
-    padding: 15px 20px;
+    height: 52px;
+    box-sizing: border-box;
+    padding: 16px;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     border: 1px solid var(--input-border);
@@ -142,7 +162,7 @@ body:has(.home-container) {
     outline: none;
 }
 
-.login-container input::placeholder {
+.home-login-container input::placeholder {
     color: #888;
     font-weight: 600;
 }
@@ -150,7 +170,7 @@ body:has(.home-container) {
 .btn-orange {
     background-color: var(--orange);
     color: var(--white);
-    padding: 12px 30px;
+    padding: 14px 40px;
     border-radius: 30px;
     font-family: 'Hiruko', sans-serif;
     font-size: 16px;
@@ -174,13 +194,13 @@ body:has(.home-container) {
     background-repeat: no-repeat;
     position: relative;
     text-align: center;
-    padding: 0px 0px 120px;
+    padding: 0px 20px 420px;
 }
 
 .signup-wrapper {
     position: relative;
     text-align: center;
-    padding: 50px 20px 350px;
+    padding: 80px 80px 500px;
 }
 
 .wave-bottom-white {
@@ -203,7 +223,8 @@ body:has(.home-container) {
 .signup-wrapper h2 {
     font-family: 'Hiruko', sans-serif;
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+    line-height: 1.4;
     position: relative;
     z-index: 2;
 }
@@ -211,8 +232,9 @@ body:has(.home-container) {
 .signup-wrapper h3 {
     font-family: 'Hiruko', sans-serif;
     font-size: 24px;
-    margin-bottom: 15px;
-    margin-top: 40px;
+    margin-bottom: 24px;
+    margin-top: 56px;
+    line-height: 1.4;
     position: relative;
     z-index: 2;
 }
@@ -227,8 +249,8 @@ body:has(.home-container) {
 .grade-selection {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 24px;
+    margin-bottom: 50px;
     position: relative;
     z-index: 2;
 }
@@ -272,8 +294,8 @@ body:has(.home-container) {
 .character-selection {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 15px;
+    gap: 24px;
+    margin-top: 30px;
     position: relative;
     z-index: 2;
 }
@@ -323,8 +345,66 @@ body:has(.home-container) {
     pointer-events: none;
 }
 
-.home-container footer {
-    margin-top: -120px;
-    position: relative;
-    z-index: 5;
+/* Media Queries para Distintos Dispositivos */
+
+/* Pantallas Medianas (Tablets y Laptops) */
+@media (max-width: 1024px) {
+    .home-container {
+        display: block;
+        background-color: transparent;
+    }
+
+    .home-center-content {
+        width: 100%;
+        grid-column: auto;
+    }
+
+    .home-nav,
+    .home-header,
+    .login-wrapper,
+    .signup-wrapper {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+/* Tablets (Portrait) */
+@media (max-width: 768px) {
+    .home-nav .nav-links {
+        display: none;
+    }
+
+    .home-header h1 {
+        font-size: 32px;
+    }
+
+    .home-login-container h2 {
+        font-size: 32px;
+    }
+}
+
+/* Dispositivos Móviles */
+@media (max-width: 430px) {
+    .home-header {
+        padding-top: 80px;
+        padding-bottom: 20px;
+    }
+
+    .home-header h1 {
+        font-size: 28px;
+    }
+
+    .home-login-container {
+        top: 40px;
+    }
+
+    .onda {
+        background-image: url('./images/onda.png');
+        background-size: contain;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        position: relative;
+        text-align: center;
+        padding: 0px 20px 220px;
+    }
 }

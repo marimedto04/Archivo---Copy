@@ -18,13 +18,15 @@ export class DashboardView extends BaseView {
   render() {
     return `
       <div class="dashboard-container">
-        ${NavComponent()}
-        ${HeroComponent()}
-        ${WelcomeComponent()}
-        ${ClassesComponent()}
-        ${BenefitsComponent()}
-        ${AppPreviewComponent()}
-        ${FooterComponent()}
+        <div class="dashboard-center-content">
+          ${NavComponent()}
+          ${HeroComponent()}
+          ${WelcomeComponent()}
+          ${ClassesComponent()}
+          ${BenefitsComponent()}
+          ${AppPreviewComponent()}
+          ${FooterComponent()}
+        </div>
       </div>
     `;
   }

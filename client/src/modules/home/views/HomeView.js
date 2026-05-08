@@ -14,7 +14,8 @@ export class HomeView extends BaseView {
 
   render() {
     return `
-      <div class="home-container" style="">
+      <div class="home-container">
+        <div class="home-center-content">
         ${NavComponent()}
 
         <header class="home-header">
@@ -28,7 +29,8 @@ export class HomeView extends BaseView {
             <div class="wave-top">
                 <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#ffffff" d="M0,32L80,37.3C160,43,320,53,480,53.3C640,53,800,43,960,37.3C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path></svg>
             </div>
-            <div class="login-container">
+            <div class="home-login-container">
+                <img src="${pollo1}" class="pollo-icon" alt="Pollo">
                 <h2>Inicia sesión</h2>
                 <form>
                     <input type="email" placeholder="Email">
@@ -69,6 +71,7 @@ export class HomeView extends BaseView {
             <div class="landscape"></div>
         </section>
         ${FooterComponent()}
+        </div>
       </div>
     `;
   }
