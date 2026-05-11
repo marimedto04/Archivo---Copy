@@ -43,9 +43,17 @@
 }
 
 @keyframes float {
-  0%   { transform: translate(0px, 0px) scale(1); }
-  50%  { transform: translate(30px, -30px) scale(1.05); }
-  100% { transform: translate(0px, 0px) scale(1); }
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
 .landing-hero {
@@ -57,8 +65,15 @@
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .landing-hero__title {
@@ -165,8 +180,13 @@
   animation: fadeInUp 0.8s ease backwards;
 }
 
-.feature-card:nth-child(2) { animation-delay: 0.1s; }
-.feature-card:nth-child(3) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
 
 .feature-card:hover {
   transform: translateY(-10px);

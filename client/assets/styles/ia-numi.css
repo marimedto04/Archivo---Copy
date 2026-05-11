@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.ia-numi-layout-wrapper {
+    background-color: #f0f0f0;
+    /* Gris para las columnas laterales */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.ia-numi-container {
+    width: 100%;
+    max-width: 1024px;
+    /* Medida de 1024 */
+    min-height: 100vh;
+    background-color: #65cee3;
+    /* Celeste sólido del sitio */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Para contener el nav absoluto */
+}
+
+.ia-numi-content {
+    flex: 1;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ia-numi-title {
+    font-family: 'Hiruko', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.ia-numi-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.ia-numi-grid__row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.subject-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s ease;
+}
+
+.subject-card:hover {
+    transform: scale(1.05);
+}
+
+.subject-btn {
+    width: 160px;
+    height: 160px;
+    background-color: var(--subject-color);
+    border: none;
+    border-radius: 40px;
+    /* Bordes muy redondeados */
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.subject-card:hover .subject-btn {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.subject-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+.subject-icon {
+    font-size: 5rem;
+    color: white;
+    font-family: 'Hiruko', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subject-name {
+    font-family: 'Hiruko';
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--subject-color);
+    text-align: center;
+}
+
+/* Ajustes específicos para los iconos de texto */
+.subject-card[data-id="matematicas"] .subject-icon,
+.subject-card[data-id="ingles"] .subject-icon {
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+@media (max-width: 600px) {
+    .subject-btn {
+        width: 120px;
+        height: 120px;
+        border-radius: 30px;
+    }
+
+    .subject-icon {
+        font-size: 3.5rem;
+    }
+
+    .subject-name {
+        font-size: 1.4rem;
+    }
+
+    .ia-numi-title {
+        font-size: 2rem;
+    }
+}
+
+/* Download Section */
+.download-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.download-btn,
+.download-sociales-btn,
+.download-naturales-btn,
+.download-ingles-btn,
+.download-espanol-btn {
+    transition: transform 0.2s;
+}
+
+.download-btn:hover,
+.download-sociales-btn:hover,
+.download-naturales-btn:hover,
+.download-ingles-btn:hover,
+.download-espanol-btn:hover {
+    transform: scale(1.05);
+}
+
+.download-btn:active,
+.download-sociales-btn:active,
+.download-naturales-btn:active,
+.download-ingles-btn:active,
+.download-espanol-btn:active {
+    transform: scale(0.95);
+}
+
+/* Specific Sociales styles */
+.sociales-content .faq-chip {
+    background-color: #f97316;
+    color: white;
+}
+
+.sociales-content .faq-chip:hover {
+    background-color: #ea580c;
+    /* Naranja un poco más oscuro al pasar el mouse */
+}
+
+/* Specific Naturales styles */
+.naturales-content .faq-chip {
+    background-color: #22c55e;
+    color: white;
+}
+
+.naturales-content .faq-chip:hover {
+    background-color: #16a34a;
+    /* Verde un poco más oscuro al pasar el mouse */
+}
+
+/* Specific Inglés styles */
+.ingles-content .faq-chip {
+    background-color: #a855f7;
+    color: white;
+}
+
+.ingles-content .faq-chip:hover {
+    background-color: #9333ea; /* Púrpura un poco más oscuro al pasar el mouse */
+}
+
+/* Specific Español styles */
+.espanol-content .faq-chip {
+    background-color: #ef4444;
+    color: white;
+}
+
+.espanol-content .faq-chip:hover {
+    background-color: #dc2626; /* Rojo un poco más oscuro al pasar el mouse */
+}
+
+/* IA Numi Math Section */
+.math-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+
+.math-title {
+    font-family: 'Hiruko', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.math-card-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.math-characters {
+    position: absolute;
+    top: -95px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.char-img {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+}
+
+.char-img--pollo {
+    transform: translateX(-10px);
+}
+
+.char-img--mono {
+    transform: translateX(10px);
+}
+
+.math-card {
+    background: white;
+    border-radius: 50px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.math-greeting {
+    font-family: 'Hiruko', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.math-input-container {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 15px 25px;
+    margin-bottom: 25px;
+}
+
+.math-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    color: #333;
+    outline: none;
+    font-family: inherit;
+}
+
+.faq-label {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+    display: block;
+    padding-left: 10px;
+}
+
+.faq-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-chip {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    width: fit-content;
+    font-family: 'Hiruko', sans-serif;
+}
+
+.faq-chip:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .math-content {
+        margin-top: 60px;
+    }
+
+    .math-title {
+        font-size: 2.2rem;
+        margin-bottom: 60px;
+    }
+
+    .math-card {
+        padding: 30px 20px;
+        border-radius: 35px;
+    }
+
+    .char-img {
+        height: 90px;
+    }
+
+    .math-characters {
+        top: -70px;
+        padding: 0 20px;
+    }
+}

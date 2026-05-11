@@ -8,6 +8,7 @@ import { DownloadView } from './src/modules/download/views/DownloadView.js'
 import { HomeView } from './src/modules/home/views/HomeView.js'
 import { SubjectSelectorView } from './src/modules/chatbot/views/SubjectSelectorView.js'
 import { ChatView } from './src/modules/chatbot/views/ChatView.js'
+import { IaNumiView } from './src/modules/ia-numi/views/IaNumiView.js'
 
 // ── Configuración ─────────────────────────────────────────────────────────────
 httpClient.setBaseUrl('http://localhost:3000')
@@ -47,6 +48,8 @@ function handleRoute() {
     case '/chat':
       const state = window.history.state || {}
       return mountView(ChatView, state)
+    case '/ia-numi':
+      return mountView(IaNumiView)
     default:
       return mountView(HomeView)
   }
@@ -89,5 +92,6 @@ eventBus.on('navigation:goToDownload', () => navigateToPath('/download'))
 
 // ── Eventos del chatbot ───────────────────────────────────────────────────────
 eventBus.on('navigation:openChatbot', () => navigateToPath('/chat-subjects'))
+eventBus.on('navigation:goToMath', () => navigateToPath('/ia-numi/matematicas'))
 eventBus.on('chatbot:subjectSelected', ({ subject, level }) => navigateToPath('/chat', { subject, level }))
 eventBus.on('chatbot:back', () => navigateToPath('/chat-subjects'))
