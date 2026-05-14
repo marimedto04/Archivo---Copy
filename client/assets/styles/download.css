@@ -20,6 +20,10 @@ body:has(.download-module-container) {
 }
 
 /* Navbar Download */
+.download-view .home-nav {
+    background-color: var(--light-blue) !important;
+}
+
 .download-nav {
     position: absolute;
     top: 0;
@@ -123,9 +127,9 @@ body:has(.download-module-container) {
 
 .hero-download .hero-monkey {
     position: absolute;
-    left: -30px;
+    left: -70px;
     top: 55%;
-    transform: scaleX(-1) rotate(-10deg);
+    transform: rotate(35deg);
     width: 240px;
     z-index: 4;
 }
@@ -150,7 +154,7 @@ body:has(.download-module-container) {
 /* Content Container */
 .content-download {
     max-width: 800px;
-    margin: 100px auto 80px;
+    margin: 200px auto 80px;
     padding: 0 5%;
     width: 100%;
     position: relative;
