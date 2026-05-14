@@ -9,7 +9,7 @@ export const BenefitsComponent = () => `
       <div class="benefits-grid">
           <div class="benefit-card">
               <div class="benefit-image">
-                  <img src="assets/img/aprende sin internet.PNG">
+                  <img src="assets/img/aprende sin internet.png">
               </div>
               <h3>Aprender sin internet</h3>
               <p>Nuestra plataforma permite a los niños disfrutar de contenidos interactivos sin necesidad de internet
@@ -17,7 +17,7 @@ export const BenefitsComponent = () => `
           </div>
           <div class="benefit-card">
               <div class="benefit-image">
-                  <img src="assets/img/experiencias divertidas.PNG">
+                  <img src="assets/img/experiencias divertidas.png">
               </div>
               <h3>Experiencias divertidas</h3>
               <p>El aprendizaje lúdico y simple hace de Numi un lugar increíble para el aprendizaje, de este modo
@@ -25,7 +25,7 @@ export const BenefitsComponent = () => `
           </div>
           <div class="benefit-card">
               <div class="benefit-image">
-                  <img src="assets/img/facil de usar.PNG">
+                  <img src="assets/img/facil de usar.png">
               </div>
               <h3>Fácil de usar</h3>
               <p>Nuestra interfaz es muy fácil y amigable con el niño para facilitar su autonomía y proceso de

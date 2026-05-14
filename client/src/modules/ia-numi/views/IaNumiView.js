@@ -35,6 +35,39 @@ export class IaNumiView extends BaseView {
     const isDownloadedEspanol = this._viewModel.getState('isDownloadedEspanol');
     const question = this._viewModel.getState('question') || '';
     const suggestedQuestions = this._viewModel.getState('suggestedQuestions') || [];
+    const messages = this._viewModel.getState('messages') || [];
+    const isLoading = this._viewModel.getState('isLoading');
+
+    // Helper para renderizar los mensajes dentro de la tarjeta
+    const renderMsgsHtml = () => {
+      return `
+        <div class="ia-chat-msgs" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; padding-right: 10px; display: flex; flex-direction: column; gap: 10px;">
+          ${messages.map(m => {
+            const isUser = m.role === 'user';
+            const isErr = m.role === 'error';
+            const bg = isUser ? '#f8fafc' : (isErr ? '#fee2e2' : 'transparent');
+            const border = isUser ? '1px solid #e2e8f0' : 'none';
+            const color = isUser ? '#334155' : (isErr ? '#dc2626' : '#1e293b');
+            const align = isUser ? 'flex-end' : 'flex-start';
+            const radius = isUser ? '15px 15px 0 15px' : '0 15px 15px 15px';
+            return `
+              <div style="display: flex; flex-direction: column; align-items: ${align};">
+                <div style="background: ${bg}; color: ${color}; padding: 12px 18px; border-radius: ${radius}; border: ${border}; max-width: 90%; line-height: 1.5; font-size: 1.1em;">
+                  ${m.text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
+                </div>
+              </div>
+            `;
+          }).join('')}
+          ${isLoading ? `
+             <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                <div style="color: #64748b; padding: 10px 15px; font-style: italic;">
+                  numi está escribiendo...
+                </div>
+              </div>
+          ` : ''}
+        </div>
+      `;
+    };
 
     // Organizar en filas de 3 y 2 para la grilla principal
     const rows = [
@@ -133,19 +166,22 @@ export class IaNumiView extends BaseView {
             </div>
             
             <div class="math-card">
-              <p class="math-greeting">¡Hola! Soy numi ¿en qué te puedo ayudar hoy?</p>
+              ${renderMsgsHtml()}
               
               <div class="math-input-container">
                 <input type="text" 
                        class="math-input" 
                        placeholder="Escribe tu pregunta aquí..." 
-                       value="${question}">
+                       value="${question}"
+                       ${isLoading ? 'disabled' : ''}>
               </div>
               
+              ${messages.length <= 1 ? `
               <span class="faq-label">Preguntas frecuentes</span>
               <div class="faq-chips">
                 ${chipsHtml}
               </div>
+              ` : ''}
             </div>
           </div>
         </div>
@@ -166,20 +202,23 @@ export class IaNumiView extends BaseView {
             </div>
             
             <div class="math-card">
-              <p class="math-greeting">¡Hello! Soy numi ¿en qué te puedo ayudar hoy?</p>
+              ${renderMsgsHtml()}
               
               <div class="math-input-container">
                 <input type="text" 
                        class="math-input" 
                        placeholder="Escribe tu pregunta aquí..." 
-                       value="${question}">
+                       value="${question}"
+                       ${isLoading ? 'disabled' : ''}>
               </div>
               
+              ${messages.length <= 1 ? `
               <span class="faq-label">Preguntas frecuentes</span>
               <div class="faq-chips">
                 <button class="faq-chip">Departamentos de Colombia</button>
                 <button class="faq-chip">Los indígenas</button>
               </div>
+              ` : ''}
             </div>
           </div>
         </div>
@@ -200,20 +239,23 @@ export class IaNumiView extends BaseView {
             </div>
             
             <div class="math-card">
-              <p class="math-greeting">¡Hello! Soy numi ¿en qué te puedo ayudar hoy?</p>
+              ${renderMsgsHtml()}
               
               <div class="math-input-container">
                 <input type="text" 
                        class="math-input" 
                        placeholder="Escribe tu pregunta aquí..." 
-                       value="${question}">
+                       value="${question}"
+                       ${isLoading ? 'disabled' : ''}>
               </div>
               
+              ${messages.length <= 1 ? `
               <span class="faq-label">Preguntas frecuentes</span>
               <div class="faq-chips">
                 <button class="faq-chip">Estados de la materia</button>
                 <button class="faq-chip">Ecosistemas</button>
               </div>
+              ` : ''}
             </div>
           </div>
         </div>
@@ -234,20 +276,23 @@ export class IaNumiView extends BaseView {
             </div>
             
             <div class="math-card">
-              <p class="math-greeting">¡Hello! Soy numi ¿en qué te puedo ayudar hoy?</p>
+              ${renderMsgsHtml()}
               
               <div class="math-input-container">
                 <input type="text" 
                        class="math-input" 
                        placeholder="Escribe tu pregunta aquí..." 
-                       value="${question}">
+                       value="${question}"
+                       ${isLoading ? 'disabled' : ''}>
               </div>
               
+              ${messages.length <= 1 ? `
               <span class="faq-label">Preguntas frecuentes</span>
               <div class="faq-chips">
                 <button class="faq-chip">Verbo to be</button>
                 <button class="faq-chip">Have and has</button>
               </div>
+              ` : ''}
             </div>
           </div>
         </div>
@@ -268,20 +313,23 @@ export class IaNumiView extends BaseView {
             </div>
             
             <div class="math-card">
-              <p class="math-greeting">¡Hello! Soy numi ¿en qué te puedo ayudar hoy?</p>
+              ${renderMsgsHtml()}
               
               <div class="math-input-container">
                 <input type="text" 
                        class="math-input" 
                        placeholder="Escribe tu pregunta aquí..." 
-                       value="${question}">
+                       value="${question}"
+                       ${isLoading ? 'disabled' : ''}>
               </div>
               
+              ${messages.length <= 1 ? `
               <span class="faq-label">Preguntas frecuentes</span>
               <div class="faq-chips">
                 <button class="faq-chip">Tipos de textos</button>
                 <button class="faq-chip">Signos de puntuación</button>
               </div>
+              ` : ''}
             </div>
           </div>
         </div>
@@ -397,6 +445,22 @@ export class IaNumiView extends BaseView {
       if (input && input.value !== value) {
         input.value = value;
       }
+    });
+
+    this._subscribe('messages', () => {
+      this._rerender();
+      setTimeout(() => {
+        const msgsContainer = this.$('.ia-chat-msgs');
+        if (msgsContainer) msgsContainer.scrollTop = msgsContainer.scrollHeight;
+      }, 50);
+    });
+
+    this._subscribe('isLoading', () => {
+      this._rerender();
+      setTimeout(() => {
+        const msgsContainer = this.$('.ia-chat-msgs');
+        if (msgsContainer) msgsContainer.scrollTop = msgsContainer.scrollHeight;
+      }, 50);
     });
   }
 

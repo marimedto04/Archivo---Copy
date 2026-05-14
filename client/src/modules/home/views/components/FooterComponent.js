@@ -1,4 +1,4 @@
-import footerLogo from '../../../../../assets/img/logo-numi.png';
+import footerLogo from '../../../../../assets/styles/images/logo-numi.png';
 
 export const FooterComponent = () => `
   <footer>
@@ -18,7 +18,7 @@ export const FooterComponent = () => `
 
       <div class="footer-links">
           <a href="#">Inicio</a>
-          <a href="#">¿Qué es numi?</a>
+          <a href="/dashboard" data-link>¿Qué es numi?</a>
           <a href="#">Descargar</a>
           <a href="#">Mi numi</a>
       </div>

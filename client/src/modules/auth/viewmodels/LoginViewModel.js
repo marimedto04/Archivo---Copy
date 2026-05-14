@@ -14,7 +14,6 @@ import { BaseViewModel } from '../../../core/BaseViewModel.js'
 import { authService } from '../services/AuthService.js'
 import { authStore } from '../store/authStore.js'
 import { eventBus } from '../../../shared/utils/eventBus.js'
-import { httpClient } from '../../../shared/utils/httpClient.js'
 
 export class LoginViewModel extends BaseViewModel {
   _initState() {
@@ -63,16 +62,36 @@ export class LoginViewModel extends BaseViewModel {
       // Persistir sesión en el store del módulo
       authStore.setSession(sessionData)
 
-      // Configurar el token para futuras peticiones
-      httpClient.setAuthToken(sessionData.token)
-
       this.stopLoading()
 
       // Notificar a otros módulos que el login fue exitoso
       eventBus.emit('auth:loginSuccess', { user: sessionData.user })
 
     } catch (error) {
-      this.setError(error.message || 'Credenciales incorrectas.')
+      let errorMsg = 'Credenciales incorrectas.';
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+        errorMsg = 'Correo o contraseña inválidos.';
+      } else if (error.code === 'auth/too-many-requests') {
+        errorMsg = 'Demasiados intentos fallidos. Intenta más tarde.';
+      }
+      this.setError(errorMsg)
+      this.stopLoading()
+    }
+  }
+
+  /**
+   * Ejecuta el login con Google.
+   */
+  async loginWithGoogle() {
+    this.startLoading()
+    try {
+      const sessionData = await authService.loginWithGoogle();
+      authStore.setSession(sessionData);
+      this.stopLoading();
+      eventBus.emit('auth:loginSuccess', { user: sessionData.user });
+    } catch(error) {
+      this.setError('Error al iniciar sesión con Google.');
+      this.stopLoading();
     }
   }
 

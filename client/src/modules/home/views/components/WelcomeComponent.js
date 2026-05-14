@@ -8,7 +8,7 @@ export const WelcomeComponent = () => `
               acompañe a cada niño en cualquier momento.</p>
       </div>
       <div class="welcome-img">
-          <img src="assets/img/bienvenidos-1.PNG">
+          <img src="assets/img/bienvenidos-1.png">
       </div>
   </section>
 `;

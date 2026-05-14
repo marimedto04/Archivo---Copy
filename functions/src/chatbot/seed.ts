@@ -13,7 +13,7 @@
  */
 
 import 'dotenv/config'
-import * as admin from 'firebase-admin'
+import admin from 'firebase-admin'
 import { SUBJECT_CONTENTS } from './subjects.content'
 
 // ── Inicializar Firebase Admin ─────────────────────────────────────────────
@@ -24,7 +24,7 @@ try {
         projectId: 'rag-numi'
     })
 } catch (error) {
-    console.error('Error al inicializar Firebase Admin:', error.message)
+    console.error('Error al inicializar Firebase Admin:', (error as Error).message)
 }
 
 const db = admin.firestore()

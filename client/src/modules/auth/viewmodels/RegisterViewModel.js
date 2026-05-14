@@ -8,7 +8,6 @@ import { BaseViewModel } from '../../../core/BaseViewModel.js'
 import { authService } from '../services/AuthService.js'
 import { authStore } from '../store/authStore.js'
 import { eventBus } from '../../../shared/utils/eventBus.js'
-import { httpClient } from '../../../shared/utils/httpClient.js'
 
 export class RegisterViewModel extends BaseViewModel {
   _initState() {
@@ -45,9 +44,8 @@ export class RegisterViewModel extends BaseViewModel {
       // 1. Registrar usuario
       const sessionData = await authService.register(credentials)
 
-      // Guardar sesión e inyectar token HTTP para la siguiente llamada
+      // Guardar sesión
       authStore.setSession(sessionData)
-      httpClient.setAuthToken(sessionData.token)
 
       // 2. Actualizar perfil (nombre, personaje, grado)
       const profileData = {
@@ -67,7 +65,15 @@ export class RegisterViewModel extends BaseViewModel {
       eventBus.emit('auth:registerSuccess', { user: updatedSession.user })
 
     } catch (error) {
-      this.setError(error.message || 'Error al crear la cuenta.')
+      let errorMsg = 'Error al crear la cuenta.';
+      if (error.code === 'auth/email-already-in-use') {
+         errorMsg = 'El correo ya está registrado.';
+      } else if (error.code === 'auth/weak-password') {
+         errorMsg = 'La contraseña es muy débil.';
+      } else if (error.code === 'auth/invalid-email') {
+         errorMsg = 'El formato del correo es inválido.';
+      }
+      this.setError(errorMsg)
       this.stopLoading()
     }
   }

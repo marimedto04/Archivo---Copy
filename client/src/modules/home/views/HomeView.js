@@ -23,9 +23,6 @@ export class HomeView extends BaseView {
                 <span class="text-white">¡Hola!</span><br>
                 Bienvenido a <span class="text-white">numi</span>
             </h1>
-            <div style="margin-top: 20px;">
-                <a href="/chat-subjects" data-link class="btn-orange" style="padding: 15px 30px; font-size: 1.2em; text-decoration: none; display: inline-block;">🤖 Probar Chatbot Directamente</a>
-            </div>
         </header>
 
         <section class="login-wrapper">
@@ -35,10 +32,11 @@ export class HomeView extends BaseView {
             <div class="home-login-container">
                 <img src="${pollo1}" class="pollo-icon" alt="Pollo">
                 <h2>Inicia sesión</h2>
-                <form>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Contraseña">
-                    <button type="button" class="btn-orange" id="btn-login" style="margin-top: 15px;">Iniciar sesión</button>
+                <form id="home-login-form" novalidate>
+                    <input type="email" id="home-login-email" placeholder="Email">
+                    <input type="password" id="home-login-password" placeholder="Contraseña">
+                    <button type="submit" class="btn-orange" id="btn-login" style="margin-top: 15px;">Iniciar sesión</button>
+                    <div id="home-login-error" style="color: red; margin-top: 10px;"></div>
                 </form>
             </div>
         </section>
@@ -52,8 +50,10 @@ export class HomeView extends BaseView {
            
 
             <h3>¿Cuál es tu nombre?</h3>
-            <div class="input-center">
-                <input type="text" placeholder="Nombre" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
+            <div class="input-center" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" id="home-reg-name" placeholder="Nombre" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
+                <input type="email" id="home-reg-email" placeholder="Correo electrónico" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
+                <input type="password" id="home-reg-password" placeholder="Contraseña" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
             </div>
             <h3>Elije tu personaje</h3>
             <div class="character-selection">
@@ -71,6 +71,10 @@ export class HomeView extends BaseView {
                 <button type="button" class="grade-btn bg-purple">4º</button>
                 <button type="button" class="grade-btn bg-red">5º</button>
             </div>
+            <div style="text-align: center; margin-top: 20px; position: relative; z-index: 10;">
+                <button type="button" class="btn-orange" id="btn-register" style="margin-top: 15px;">Crear cuenta</button>
+                <div id="home-reg-error" style="color: red; margin-top: 10px;"></div>
+            </div>
             <div class="landscape"></div>
         </section>
         ${FooterComponent()}
@@ -82,12 +86,71 @@ export class HomeView extends BaseView {
   _bindViewModel() { }
 
   _bindEvents() {
-    this._addEvent('#btn-login', 'click', (e) => {
-      e.preventDefault();
-      // Simular auth login success para navegar a la segunda pantalla
-      import('../../../shared/utils/eventBus.js').then(({ eventBus }) => {
-        eventBus.emit('auth:loginSuccess', { user: 'Test' });
+    let selectedCharacter = '';
+    let selectedGrade = 0;
+
+    const charCircles = this.$$('.char-circle');
+    charCircles.forEach(circle => {
+      circle.addEventListener('click', (e) => {
+        charCircles.forEach(c => c.style.border = 'none');
+        e.currentTarget.style.border = '3px solid #ff7b00';
+        e.currentTarget.style.borderRadius = '50%';
+        selectedCharacter = e.currentTarget.querySelector('img').alt;
       });
+    });
+
+    const gradeBtns = this.$$('.grade-btn');
+    gradeBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        gradeBtns.forEach(b => b.style.border = 'none');
+        e.currentTarget.style.border = '3px solid #000';
+        selectedGrade = parseInt(e.currentTarget.textContent);
+      });
+    });
+
+    const loginHandler = (e) => {
+      e.preventDefault();
+      const emailEl = document.getElementById('home-login-email');
+      const passwordEl = document.getElementById('home-login-password');
+      const el = document.getElementById('home-login-error');
+      
+      const email = emailEl ? emailEl.value : '';
+      const password = passwordEl ? passwordEl.value : '';
+      
+      if (email && password) {
+        if (el) {
+          el.style.color = 'blue';
+          el.textContent = 'Conectando con Firebase...';
+        }
+        this._viewModel.submitLogin(email, password);
+      } else {
+        if (el) {
+          el.style.color = 'red';
+          el.textContent = 'Por favor completa todos los campos.';
+        }
+      }
+    };
+
+    const loginForm = document.getElementById('home-login-form');
+    if (loginForm) {
+      // Usar addEventListener es más seguro que onsubmit
+      loginForm.addEventListener('submit', loginHandler);
+    }
+
+    this._addEvent('#btn-register', 'click', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('home-reg-name').value;
+      const email = document.getElementById('home-reg-email').value;
+      const password = document.getElementById('home-reg-password').value;
+      
+      console.log('Botón registrar clickeado', { name, email, selectedCharacter, selectedGrade });
+      
+      if (name && email && password && selectedCharacter && selectedGrade) {
+        this._viewModel.submitRegister(name, email, password, selectedCharacter, selectedGrade);
+      } else {
+        console.warn('Validación fallida: faltan campos o personaje/grado no seleccionados.');
+        document.getElementById('home-reg-error').textContent = 'Por favor completa todos los campos y selecciona personaje y grado.';
+      }
     });
   }
 }

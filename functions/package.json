@@ -5,7 +5,7 @@
         "build:watch": "tsc --watch",
         "serve": "npm run build && firebase emulators:start --only functions",
         "deploy": "firebase deploy --only functions",
-        "seed": "npx ts-node --esm src/chatbot/seed.ts",
+        "seed": "npx ts-node --project src/chatbot/tsconfig.seed.json src/chatbot/seed.ts",
         "logs": "firebase functions:log"
     },
     "engines": {

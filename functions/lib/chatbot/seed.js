@@ -12,55 +12,25 @@
  * Ejecutar en Mac/Linux:
  *   GOOGLE_AI_KEY=AIzaSy...tu_key npx ts-node --skip-project src/chatbot/seed.ts
  */
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
-const admin = __importStar(require("firebase-admin"));
+const firebase_admin_1 = __importDefault(require("firebase-admin"));
 const subjects_content_1 = require("./subjects.content");
 // ── Inicializar Firebase Admin ─────────────────────────────────────────────
 // Si estás corriendo localmente contra producción, necesitas la variable:
 // $env:GOOGLE_APPLICATION_CREDENTIALS="ruta/al/service-account.json"
 try {
-    admin.initializeApp({
+    firebase_admin_1.default.initializeApp({
         projectId: 'rag-numi'
     });
 }
 catch (error) {
     console.error('Error al inicializar Firebase Admin:', error.message);
 }
-const db = admin.firestore();
+const db = firebase_admin_1.default.firestore();
 // ── Verificar API Key ──────────────────────────────────────────────────────
 const apiKey = process.env.GOOGLE_AI_KEY;
 if (!apiKey) {
@@ -142,7 +112,7 @@ async function seed() {
         await db.collection('subjects').doc(subjectId).set({
             ...meta,
             content,
-            updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+            updatedAt: firebase_admin_1.default.firestore.FieldValue.serverTimestamp(),
         });
         console.log(`   ✅ Guardado en subjects (id: ${subjectId})`);
         // 2. Eliminar chunks anteriores
@@ -178,7 +148,7 @@ async function seed() {
                 chunkIndex: i,
                 text: chunkText,
                 embedding: vector,
-                createdAt: admin.firestore.FieldValue.serverTimestamp(),
+                createdAt: firebase_admin_1.default.firestore.FieldValue.serverTimestamp(),
             });
             console.log(`   📌 Chunk ${i + 1}/${chunks.length} guardado (${vector.length}D)`);
             // Pausa para no exceder rate limit
