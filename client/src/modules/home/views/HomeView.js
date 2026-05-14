@@ -49,8 +49,9 @@ export class HomeView extends BaseView {
            
 
             <h3>¿Cuál es tu nombre?</h3>
-            <div class="input-center">
-                <input type="text" placeholder="Nombre" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
+            <div class="input-center" style="display: flex; flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto;">
+                <input type="text" placeholder="Nombre" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border); box-sizing: border-box;">
+                <input type="email" placeholder="Correo" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border); box-sizing: border-box;">
             </div>
             <h3>Elije tu personaje</h3>
             <div class="character-selection">
@@ -67,6 +68,9 @@ export class HomeView extends BaseView {
                 <button type="button" class="grade-btn bg-green">3º</button>
                 <button type="button" class="grade-btn bg-purple">4º</button>
                 <button type="button" class="grade-btn bg-red">5º</button>
+            </div>
+            <div style="text-align: center; margin-top: 30px; position: relative; z-index: 10;">
+                <button type="button" class="btn-orange" style="padding: 10px 30px; font-size: 14px; border: none; cursor: pointer;">Iniciar sesión</button>
             </div>
             <div class="landscape"></div>
         </section>

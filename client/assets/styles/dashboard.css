@@ -44,9 +44,9 @@ div.prueba {
 }
 
 /* Scoped dashboard fonts */
-.dashboard-layout h1,
-.dashboard-layout h2,
-.dashboard-layout h3 {
+.dashboard-container h1,
+.dashboard-container h2,
+.dashboard-container h3 {
   font-family: var(--font-hiruko);
 }
 
