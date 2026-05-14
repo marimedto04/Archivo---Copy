@@ -1,7 +1,6 @@
 import mono from '../../../../../assets/styles/images/mono.png';
 import nubes from '../../../../../assets/styles/images/nubes.png';
-
-
+import descargaImg from '../../../../../assets/styles/images/descarga.png';
 
 
 
@@ -16,14 +15,8 @@ export const HeroComponent = () => `
         </p>
 
         <div class="download-box">
-            <div class="btn-download" id="hero-btn-download">
-                <svg viewBox="0 0 24 24">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-            </div>
-            <span class="download-label">Para android y IOS</span>
+            <img src="${descargaImg}" alt="Descargar App" id="hero-btn-download" style="width: 130px; height: 130px; cursor: pointer; transition: transform 0.1s;">
+            <span class="download-label" style="margin-top: 15px;">Para android y IOS</span>
         </div>
 
         <div class="hero-nubes">

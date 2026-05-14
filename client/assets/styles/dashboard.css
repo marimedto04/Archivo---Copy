@@ -50,6 +50,10 @@ div.prueba {
   font-family: var(--font-hiruko);
 }
 
+.dashboard-container .home-nav {
+  background-color: var(--primary-blue);
+}
+
 .logo {
   font-family: 'Poppins', sans-serif;
 }

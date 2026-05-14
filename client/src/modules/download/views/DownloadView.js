@@ -15,7 +15,7 @@ export class DownloadView extends BaseView {
 
     render() {
         return `
-            <div class="dashboard-container">
+            <div class="dashboard-container download-view">
                 <div class="dashboard-center-content">
                     ${NavComponent()}
                     ${HeroComponent()}
