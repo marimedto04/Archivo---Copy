@@ -1,5 +1,10 @@
 import mono from '../../../../../assets/styles/images/mono.png';
+<<<<<<< HEAD
 import logoNumi from '../../../../../assets/styles/images/logo-numi.png';
+=======
+import footerLogo from '../../../../../assets/styles/images/logo-numi.png';
+import descargaImg from '../../../../../assets/styles/images/descarga.png';
+>>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
 
 export const FooterComponent = () => `
     <footer>
@@ -14,7 +19,11 @@ export const FooterComponent = () => `
         <img src="${mono}" alt="Mono" class="footer-monkey">
 
         <div class="footer-left">
+<<<<<<< HEAD
             <img src="${logoNumi}" alt="Numi" class="logo-img">
+=======
+            <img src="${footerLogo}" alt="Numi" class="logo-img">
+>>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
             <p>Numi es una aplicación educativa infantil que ofrece actividades y experiencias de aprendizaje adaptadas
                 a las necesidades de los niños.</p>
         </div>
@@ -27,11 +36,7 @@ export const FooterComponent = () => `
         </div>
 
         <div class="footer-download">
-            <svg viewBox="0 0 24 24">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
+            <img src="${descargaImg}" alt="Descargar" style="width: 40px; height: 40px;">
             <span>Descargar app</span>
         </div>
     </footer>

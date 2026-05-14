@@ -50,10 +50,16 @@ export class HomeView extends BaseView {
            
 
             <h3>¿Cuál es tu nombre?</h3>
+<<<<<<< HEAD
             <div class="input-center" style="display: flex; flex-direction: column; gap: 15px;">
                 <input type="text" id="home-reg-name" placeholder="Nombre" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
                 <input type="email" id="home-reg-email" placeholder="Correo electrónico" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
                 <input type="password" id="home-reg-password" placeholder="Contraseña" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border);">
+=======
+            <div class="input-center" style="display: flex; flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto;">
+                <input type="text" placeholder="Nombre" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border); box-sizing: border-box;">
+                <input type="email" placeholder="Correo" style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid var(--input-border); box-sizing: border-box;">
+>>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
             </div>
             <h3>Elije tu personaje</h3>
             <div class="character-selection">
@@ -71,9 +77,14 @@ export class HomeView extends BaseView {
                 <button type="button" class="grade-btn bg-purple">4º</button>
                 <button type="button" class="grade-btn bg-red">5º</button>
             </div>
+<<<<<<< HEAD
             <div style="text-align: center; margin-top: 20px; position: relative; z-index: 10;">
                 <button type="button" class="btn-orange" id="btn-register" style="margin-top: 15px;">Crear cuenta</button>
                 <div id="home-reg-error" style="color: red; margin-top: 10px;"></div>
+=======
+            <div style="text-align: center; margin-top: 30px; position: relative; z-index: 10;">
+                <button type="button" class="btn-orange" style="padding: 10px 30px; font-size: 14px; border: none; cursor: pointer;">Iniciar sesión</button>
+>>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
             </div>
             <div class="landscape"></div>
         </section>

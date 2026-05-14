@@ -13,6 +13,7 @@ export const NavComponent = () => {
           <a href="/dashboard" data-link>¿Qué es numi?</a>
           <a href="/download" data-link>Descargar</a>
           <a href="/ia-numi" data-link>IA numi</a>
+<<<<<<< HEAD
           <a href="/dashboard" data-link>Mi numi</a>
           ${isAuth ? `
           <div class="user-menu-container" style="position: relative; display: inline-block;">
@@ -29,6 +30,14 @@ export const NavComponent = () => {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </a>
           `}
+=======
+
+          <a href="/login" class="user-icon-link" data-link>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 28px; height: 28px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </a>
+
+
+>>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
       </div>
   </nav>
   `;
