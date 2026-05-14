@@ -1,5 +1,8 @@
 import footerLogo from '../../../../../assets/styles/images/logo-numi.png';
+
 import descargaImg from '../../../../../assets/styles/images/descarga.png';
+
+
 
 export const FooterComponent = () => `
   <footer>
