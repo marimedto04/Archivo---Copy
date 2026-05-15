@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-import logoNumi from '../../../../../assets/styles/images/logo-numi.png';
-=======
+
 import footerLogo from '../../../../../assets/styles/images/logo-numi.png';
 import descargaImg from '../../../../../assets/styles/images/descarga.png';
->>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
+
 
 export const FooterComponent = () => `
   <footer>
@@ -16,11 +14,8 @@ export const FooterComponent = () => `
       </div>
 
       <div class="footer-left">
-<<<<<<< HEAD
-          <img src="${logoNumi}" alt="Numi" class="logo-img">
-=======
+
           <img src="${footerLogo}" alt="Numi" class="logo-img">
->>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
           <p>Numi es una aplicación educativa infantil que ofrece actividades y experiencias de aprendizaje adaptadas
               a las necesidades de los niños.</p>
       </div>

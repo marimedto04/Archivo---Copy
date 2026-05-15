@@ -1,11 +1,9 @@
 import footerLogo from '../../../../../assets/styles/images/logo-numi.png';
-<<<<<<< HEAD
-=======
+
 
 import descargaImg from '../../../../../assets/styles/images/descarga.png';
 
 
->>>>>>> 2aa3d6082f78e743bd76e050a38a5ad94b5c1cbe
 
 export const FooterComponent = () => `
   <footer>
