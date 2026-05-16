@@ -40,7 +40,7 @@ function handleRoute() {
     case '/':
       // Si ya está autenticado, directo a IA Numi
       if (authStore.isAuthenticated) {
-        return navigateToPath('/ia-numi')
+        //return navigateToPath('/ia-numi')
       }
       return mountView(HomeView)
 
@@ -58,7 +58,7 @@ function handleRoute() {
     case '/ia-numi':
       if (!authStore.isAuthenticated) return navigateToPath('/')
       return mountView(IaNumiView)
-      
+
     default:
       return mountView(HomeView)
   }
@@ -100,36 +100,36 @@ window.addEventListener('DOMContentLoaded', () => {
   if (containerEl) {
     containerEl.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#fff;"><h2>Verificando sesión...</h2></div>';
   }
-  
+
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       try {
         const { getDoc, doc } = await import('firebase/firestore');
         const { db } = await import('./src/firebase.js');
         const docSnap = await getDoc(doc(db, 'users', user.uid));
-        
+
         let grade = 3; // Default
         let name = user.displayName || '';
-        
+
         if (docSnap.exists()) {
           const data = docSnap.data();
           grade = data.grado || data.grade || 3;
           if (!name) name = data.nombre || '';
         }
-        
+
         // Asignación automática de nivel según grado
         let level = 1;
         if (grade == 3) level = 1;
         if (grade == 4) level = 2;
         if (grade == 5) level = 3;
 
-        authStore.setSession({ 
-          user: { uid: user.uid, email: user.email, name, grade, level } 
+        authStore.setSession({
+          user: { uid: user.uid, email: user.email, name, grade, level }
         });
       } catch (e) {
         console.error("Error fetching user profile:", e);
-        authStore.setSession({ 
-          user: { uid: user.uid, email: user.email, name: user.displayName || '', grade: 3, level: 1 } 
+        authStore.setSession({
+          user: { uid: user.uid, email: user.email, name: user.displayName || '', grade: 3, level: 1 }
         });
       }
     } else {
@@ -153,7 +153,7 @@ eventBus.on('auth:logout', async () => {
   try {
     const { authService } = await import('./src/modules/auth/services/AuthService.js');
     await authService.logout();
-  } catch(e) {
+  } catch (e) {
     console.error(e);
   }
   authStore.clearSession()

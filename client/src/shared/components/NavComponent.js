@@ -12,9 +12,9 @@ export const NavComponent = () => {
           <a href="/" data-link>Inicio</a>
           <a href="/dashboard" data-link>¿Qué es numi?</a>
           <a href="/download" data-link>Descargar</a>
-          <a href="/ia-numi" data-link>IA numi</a>
-          <a href="/dashboard" data-link>Mi numi</a>
+          <a href="/dashboard" data-link>Mi numi</a> 
           ${isAuth ? `
+            <a href="/ia-numi" data-link>IA numi</a>
           <div class="user-menu-container" style="position: relative; display: inline-block;">
              <a href="#" id="user-menu-toggle" style="cursor: pointer; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
