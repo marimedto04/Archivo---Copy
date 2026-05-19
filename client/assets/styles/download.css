@@ -120,7 +120,7 @@ body:has(.download-module-container) {
 }
 
 .download-label {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 600;
 }
@@ -191,7 +191,7 @@ body:has(.download-module-container) {
 
 .content-download details summary {
     padding: 18px 25px;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 600;
     display: flex;

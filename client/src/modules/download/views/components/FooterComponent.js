@@ -21,10 +21,8 @@ export const FooterComponent = () => `
       </div>
 
       <div class="footer-links">
-          <a href="#" class="nav-link-inicio">Inicio</a>
           <a href="/dashboard" data-link>¿Qué es numi?</a>
           <a href="#" class="nav-link-descargar">Descargar</a>
-          <a href="#">Mi numi</a>
       </div>
 
       <div class="footer-download">

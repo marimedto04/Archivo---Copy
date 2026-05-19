@@ -411,6 +411,13 @@ a {
   justify-content: center;
   margin-bottom: 15px;
   box-shadow: 0 5px 0px rgba(0, 0, 0, 0.1);
+  background-size: 55px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.class-icon span {
+  display: none;
 }
 
 .class-card span {
@@ -422,22 +429,27 @@ a {
 
 .bg-math {
   background-color: var(--math);
+  background-image: url('./images/ia-numi/matematicas.png');
 }
 
 .bg-social {
   background-color: var(--social);
+  background-image: url('./images/ia-numi/sociales.png');
 }
 
 .bg-nature {
   background-color: var(--nature);
+  background-image: url('./images/ia-numi/naturales.png');
 }
 
 .bg-english {
   background-color: var(--english);
+  background-image: url('./images/ia-numi/ingles.png');
 }
 
 .bg-spanish {
   background-color: var(--spanish);
+  background-image: url('./images/ia-numi/espanol.png');
 }
 
 .text-math {
@@ -489,10 +501,10 @@ a {
 
 .pollo {
   position: absolute;
-  left: 5%;
-  bottom: 30%;
+  left: 2%;
+  bottom: 20%;
   width: 15vw;
-  max-width: 180px;
+  max-width: 130px;
   z-index: 1;
 }
 
@@ -535,13 +547,13 @@ a {
 
 .benefit-card h3 {
   font-size: 22px;
-  color: var(--text-dark);
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .benefit-card p {
   font-size: 14px;
-  font-weight: 600;
+
 }
 
 /* App Preview */
@@ -559,20 +571,34 @@ a {
 
 .phones {
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
 }
 
 .phone {
-  width: 200px;
-  height: 400px;
-  background-color: #ddd;
-  border-radius: 30px;
-  border: 8px solid #000;
-  border-bottom-width: 15px;
-  border-top-width: 15px;
-  background-size: cover;
-  background-position: center;
-  background-image: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  width: 240px;
+  height: 600px;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.phone:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+.phone:nth-child(1) {
+  background-image: url('./images/mockup1.png') !important;
+}
+
+.phone:nth-child(2) {
+  background-image: url('./images/mockup2.png') !important;
 }
 
 .app-text {
@@ -590,7 +616,7 @@ a {
 .app-text p {
   font-size: 16px;
   line-height: 1.6;
-  font-weight: 600;
+
 }
 
 /* Footer */
