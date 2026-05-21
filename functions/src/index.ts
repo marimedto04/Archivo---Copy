@@ -10,6 +10,8 @@ import { initializeApp } from 'firebase-admin/app'
 import * as https from 'firebase-functions/v2/https'
 import { askChatbot, getSubjects, getSubjectContent } from './chatbot/chatbot.flow'
 
+const cors = require("cors")({ origin: true });
+
 // Inicializar Firebase Admin
 initializeApp()
 
@@ -53,17 +55,19 @@ export const chatbotGetSubjects = https.onRequest(
 // ── chatbotGetContent ──────────────────────────────────────────────────────
 export const chatbotGetContent = https.onRequest(
     { cors: true, timeoutSeconds: 30, invoker: 'public' },
-    async (req, res) => {
-        if (req.method === 'OPTIONS') { res.status(204).send(''); return }
-        if (req.method !== 'POST') { res.status(405).send('Method Not Allowed'); return }
+    (req, res) => {
+        cors(req, res, async () => {
+            if (req.method === 'OPTIONS') { res.status(204).send(''); return }
+            if (req.method !== 'POST') { res.status(405).send('Method Not Allowed'); return }
 
-        try {
-            const input = req.body?.data ?? req.body
-            const result = await getSubjectContent(input)
-            res.status(200).json({ result })
-        } catch (err: any) {
-            console.error('[chatbotGetContent]', err.message)
-            res.status(500).json({ error: { message: err.message } })
-        }
+            try {
+                const input = req.body?.data ?? req.body
+                const result = await getSubjectContent(input)
+                res.status(200).json({ result })
+            } catch (err: any) {
+                console.error('[chatbotGetContent]', err.message)
+                res.status(500).json({ error: { message: err.message } })
+            }
+        });
     }
 )

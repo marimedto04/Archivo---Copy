@@ -25,7 +25,7 @@
 //   Ejemplo: si el ID es "rag-numi-abc12", la URL sería:
 //   https://us-central1-rag-numi-abc12.cloudfunctions.net
 
-const FUNCTIONS_BASE = 'http://localhost:5001/rag-numi/us-central1'
+const FUNCTIONS_BASE = 'https://us-central1-rag-numi.cloudfunctions.net'
 
 // ── Helper: llamar a una Cloud Function ──────────────────────────────────
 
@@ -73,7 +73,25 @@ class ChatService {
      * @returns {Promise<{ subject: object, content: string }>}
      */
     async downloadSubjectContent(subjectId) {
-        return callFunction('chatbotGetContent', { subjectId })
+        const url = "https://chatbotgetcontent-avj22f3opa-uc.a.run.app";
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ data: { subjectId } }),
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text().catch(() => 'Error desconocido');
+            throw new Error(`Error ${response.status} en chatbotGetContent: ${errorText}`);
+        }
+
+        const json = await response.json();
+
+        if (json.error) {
+            throw new Error(json.error.message || 'Error en la función');
+        }
+
+        return json.result ?? json;
     }
 
     /**
