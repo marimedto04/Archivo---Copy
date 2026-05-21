@@ -230,11 +230,11 @@
 .onda {
     background-image: url('./images/onda.png');
     background-size: cover;
-    background-position: top;
+    background-position: right;
     background-repeat: no-repeat;
     position: relative;
     text-align: center;
-    padding: 0px 20px 420px;
+    padding: 0px 20px 380px;
 }
 
 .signup-wrapper {
@@ -440,6 +440,7 @@
             opacity: 0;
             transform: translateY(-10px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
