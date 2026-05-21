@@ -8,6 +8,13 @@ export const NavComponent = () => {
   return `
   <nav class="home-nav">
       <img src="${logoNumi}" alt="Numi" class="logo-img">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menú">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
+              <line class="line-top" x1="3" y1="6" x2="21" y2="6"></line>
+              <line class="line-mid" x1="3" y1="12" x2="21" y2="12"></line>
+              <line class="line-bot" x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+      </button>
       <div class="nav-links">
           <a href="/dashboard" data-link>¿Qué es numi?</a>
           <a href="/download" data-link>Descargar</a>

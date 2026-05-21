@@ -271,8 +271,12 @@ body:has(.download-module-container) {
 }
 
 @media (max-width: 768px) {
-    .download-nav .nav-links {
+    .home-nav .nav-links {
         display: none;
+    }
+
+    .home-nav .nav-links.nav-links--active {
+        display: flex !important;
     }
 
     .hero-download h1 {
@@ -282,5 +286,51 @@ body:has(.download-module-container) {
     .hero-download .hero-monkey {
         left: -60px;
         width: 180px;
+    }
+
+    .hero-download .hero-nubes {
+        bottom: -15px;
+        transform: translateY(20%);
+    }
+
+    .hero-download .hero-nubes img {
+        height: 60px;
+        object-fit: cover;
+    }
+}
+
+/* Dispositivos Móviles muy Pequeños */
+@media (max-width: 480px) {
+    .hero-download {
+        padding: 100px 15px 80px;
+    }
+
+    .hero-download h1 {
+        font-size: 24px;
+    }
+
+    .hero-download .hero-desc {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .hero-download .hero-monkey {
+        width: 130px;
+        left: -30px;
+        top: 60%;
+    }
+
+    .hero-download .hero-nubes {
+        bottom: -25px;
+        transform: translateY(10%);
+    }
+
+    .hero-download .hero-nubes img {
+        height: 40px;
+        object-fit: cover;
+    }
+
+    .content-download {
+        margin-top: 140px;
     }
 }

@@ -75,6 +75,21 @@ document.body.addEventListener('click', e => {
   if (link) {
     e.preventDefault()
     navigateToPath(link.getAttribute('href'))
+    
+    // Cerrar menú móvil al navegar
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    if (navLinks) navLinks.classList.remove('nav-links--active');
+    if (toggleBtn) toggleBtn.classList.remove('mobile-menu-toggle--active');
+  }
+
+  // Lógica del menú móvil (hamburguesa)
+  if (e.target.closest('#mobile-menu-toggle')) {
+    e.preventDefault();
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    if (navLinks) navLinks.classList.toggle('nav-links--active');
+    if (toggleBtn) toggleBtn.classList.toggle('mobile-menu-toggle--active');
   }
 
   // Lógica del dropdown de usuario
