@@ -742,14 +742,17 @@ footer::before {
   .hero {
     padding: 60px 20px 120px;
   }
+
   .hero h1 {
     font-size: 36px;
   }
+
   .hero::before {
     width: 150px;
     height: 150px;
     left: -30px;
   }
+
   .hero::after {
     width: 180px;
     height: 180px;
@@ -761,6 +764,7 @@ footer::before {
     padding: 30px 5%;
     gap: 30px;
   }
+
   .welcome-text h2 {
     font-size: 28px;
   }
@@ -770,6 +774,7 @@ footer::before {
     margin-top: 60px;
     padding: 50px 15px;
   }
+
   .benefits-container h2 {
     font-size: 28px;
   }
@@ -779,10 +784,12 @@ footer::before {
     gap: 40px;
     padding: 30px 5%;
   }
+
   .phone {
     width: 200px;
     height: 500px;
   }
+
   .app-text h2 {
     font-size: 28px;
   }
@@ -791,6 +798,7 @@ footer::before {
   footer {
     padding: 80px 40px 40px;
   }
+
   footer::before {
     left: 2%;
     width: 150px;
@@ -807,6 +815,7 @@ footer::before {
   .home-nav .nav-links {
     display: none;
   }
+
   .home-nav .nav-links.nav-links--active {
     display: flex !important;
   }
@@ -816,6 +825,7 @@ footer::before {
     flex-direction: column;
     overflow-y: auto;
   }
+
   .dashboard-sidebar {
     width: 100%;
     flex-direction: row;
@@ -823,14 +833,17 @@ footer::before {
     justify-content: space-between;
     padding: 15px 20px;
   }
+
   .dashboard-sidebar .logo {
     margin-bottom: 0;
     font-size: 24px;
   }
+
   .dashboard-nav {
     flex-direction: row;
     gap: 10px;
   }
+
   .dashboard-nav a {
     padding: 10px 14px;
     font-size: 14px;
@@ -841,16 +854,20 @@ footer::before {
   .hero {
     padding: 50px 15px 100px;
   }
+
   .hero h1 {
     font-size: 30px;
   }
+
   .hero p {
     font-size: 15px;
   }
+
   .hero::before,
   .hero::after {
     display: none;
   }
+
   .btn {
     font-size: 17px;
     padding: 12px 32px;
@@ -862,15 +879,19 @@ footer::before {
     text-align: center;
     padding: 30px 20px;
   }
+
   .welcome-text {
     min-width: 0;
   }
+
   .welcome-text h2 {
     font-size: 26px;
   }
+
   .welcome-text p {
     font-size: 15px;
   }
+
   .welcome-img {
     max-width: 350px;
     min-width: 0;
@@ -883,18 +904,22 @@ footer::before {
     padding-right: 0;
     font-size: 28px;
   }
+
   .class-grid {
     gap: 20px;
   }
+
   .class-card {
     width: 100px;
     padding: 15px 8px;
   }
+
   .class-icon {
     width: 75px;
     height: 75px;
     background-size: 45px;
   }
+
   .class-card span {
     font-size: 15px;
   }
@@ -904,16 +929,20 @@ footer::before {
     margin-top: 40px;
     padding: 40px 15px;
   }
+
   .benefits-container h2 {
     font-size: 26px;
     margin-bottom: 30px;
   }
+
   .benefits-grid {
     gap: 25px;
   }
+
   .benefit-card {
     min-width: 200px;
   }
+
   .benefit-card h3 {
     font-size: 20px;
   }
@@ -925,16 +954,20 @@ footer::before {
     padding: 30px 20px;
     gap: 30px;
   }
+
   .app-text {
     text-align: center;
   }
+
   .app-text h2 {
     font-size: 26px;
   }
+
   .phone {
     width: 180px;
     height: 450px;
   }
+
   .phones {
     gap: 15px;
   }
@@ -947,24 +980,29 @@ footer::before {
     white-space: normal;
     gap: 20px;
   }
+
   .footer-links a::after {
     display: none;
   }
+
   footer {
     padding: 70px 20px 40px;
     align-items: center;
     text-align: center;
     flex-direction: column;
   }
+
   .footer-left {
     max-width: 100%;
     align-items: center;
     display: flex;
     flex-direction: column;
   }
+
   .footer-left p {
     text-align: center;
   }
+
   footer::before {
     left: 50%;
     transform: translateX(-50%);
@@ -980,14 +1018,17 @@ footer::before {
   .hero {
     padding: 40px 15px 80px;
   }
+
   .hero h1 {
     font-size: 24px !important;
     max-width: 100%;
   }
+
   .hero p {
     font-size: 14px;
     margin-bottom: 25px;
   }
+
   .btn {
     font-size: 16px;
     padding: 10px 28px;
@@ -998,13 +1039,16 @@ footer::before {
     padding: 25px 15px;
     gap: 20px;
   }
+
   .welcome-text h2 {
     font-size: 22px;
     margin-bottom: 12px;
   }
+
   .welcome-text p {
     font-size: 14px;
   }
+
   .welcome-img {
     max-width: 280px;
   }
@@ -1013,17 +1057,21 @@ footer::before {
   .classes {
     padding: 25px 10px;
   }
+
   .classes h2 {
     font-size: 24px;
     margin-bottom: 25px;
   }
+
   .class-grid {
     gap: 12px;
   }
+
   .class-card {
     width: 85px;
     padding: 12px 6px;
   }
+
   .class-icon {
     width: 60px;
     height: 60px;
@@ -1031,6 +1079,7 @@ footer::before {
     background-size: 35px;
     margin-bottom: 10px;
   }
+
   .class-card span {
     font-size: 13px;
   }
@@ -1040,25 +1089,31 @@ footer::before {
     margin-top: 20px;
     padding: 30px 10px;
   }
+
   .benefits-container h2 {
     font-size: 22px;
     margin-bottom: 20px;
   }
+
   .benefits-grid {
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
+
   .benefit-card {
     max-width: 100%;
     min-width: 0;
   }
+
   .benefit-image {
     height: 160px;
   }
+
   .benefit-card h3 {
     font-size: 18px;
   }
+
   .benefit-card p {
     font-size: 13px;
   }
@@ -1068,15 +1123,20 @@ footer::before {
     padding: 25px 15px;
     gap: 25px;
   }
+
   .app-text h2 {
     font-size: 22px;
   }
+
   .app-text p {
     font-size: 14px;
+    margin-bottom: 120px;
   }
+
   .phones {
     gap: 10px;
   }
+
   .phone {
     width: 140px;
     height: 350px;
@@ -1086,21 +1146,26 @@ footer::before {
   footer {
     padding: 60px 15px 30px !important;
   }
+
   footer::before {
     width: 110px !important;
     height: 110px !important;
     bottom: calc(100% - 55px) !important;
   }
+
   .footer-left .logo,
   .footer-left .logo-img {
     width: 110px;
   }
+
   .footer-left p {
     font-size: 13px;
   }
+
   .footer-links a {
     font-size: 14px;
   }
+
   .footer-download {
     font-size: 14px;
     width: auto;
